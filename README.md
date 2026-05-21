@@ -23,9 +23,29 @@ Este proyecto ha sido diseñado específicamente para ser de fácil lectura y co
 
 ---
 
-## 🚀 Cómo Desplegar tu Wiki en GitHub Pages
+## 💻 Desarrollo Local con Recarga Automática (Auto-Reload)
 
-Dado que esta wiki está construida puramente con tecnologías de frontend estático (HTML, CSS y JS sin frameworks pesados), **es perfecta y gratuita de alojar en GitHub Pages**. Sigue estos sencillos pasos desde tu terminal para subirla a tu propio perfil:
+Hemos configurado un servidor local ultra-rápido utilizando **Vite**. Cuando modifiques cualquier archivo (`index.html`, `styles.css` o `script.js`), el navegador se actualizará automáticamente al instante sin tener que recargar a mano.
+
+### Cómo iniciarlo localmente:
+1. Asegúrate de tener instalado [Node.js](https://nodejs.org/).
+2. Abre la terminal en la carpeta del proyecto y ejecuta el comando para instalar las herramientas de desarrollo:
+   ```bash
+   npm install
+   ```
+3. Inicia el servidor de desarrollo local:
+   ```bash
+   npm run dev
+   ```
+4. La terminal te dará una dirección local (normalmente `http://localhost:5173`). Ábrela en tu navegador. ¡Cada cambio que guardes se reflejará al instante!
+
+---
+
+## 🚀 Cómo Desplegar tu Wiki en GitHub Pages con Actualización Automática
+
+Hemos creado un flujo de integración continua (**GitHub Actions**). Cada vez que hagas un `git push` a tu repositorio en GitHub, la página web se compilará y actualizará en internet de forma **100% automática**.
+
+Sigue estos sencillos pasos para configurarlo por primera vez:
 
 ### Paso 1: Crea tu Repositorio en GitHub
 1. Entra a tu cuenta en [GitHub](https://github.com).
@@ -38,31 +58,25 @@ Dado que esta wiki está construida puramente con tecnologías de frontend está
 Desde la terminal en tu computadora (en la carpeta del proyecto `wikiAstronomia`), ejecuta los siguientes comandos ordenadamente:
 
 ```bash
-# 1. Ya hemos inicializado git en tu carpeta local. 
-# Añadimos todos los archivos creados al área de preparación:
-git add .
-
-# 2. Creamos tu primer commit (guardado formal de los archivos):
-git commit -m "Commit inicial: Wiki de astronomía completa y optimizada"
-
-# 3. Nombramos la rama principal como "main":
+# 1. Ya hemos inicializado git y guardado tus archivos.
+# Nombramos la rama principal como "main":
 git branch -M main
 
-# 4. Conectamos tu carpeta local con tu repositorio remoto de GitHub 
+# 2. Conectamos tu carpeta local con tu repositorio remoto de GitHub 
 # (Reemplaza la URL con la tuya copiada en el Paso 1):
 git remote add origin https://github.com/tu-usuario/wiki-astronomia.git
 
-# 5. Subimos tu código a GitHub:
+# 3. Subimos tu código a GitHub:
 git push -u origin main
 ```
 
-### Paso 3: Activa GitHub Pages
+### Paso 3: Activa GitHub Pages mediante GitHub Actions
 1. Una vez subido tu código, entra a tu repositorio en el sitio web de GitHub.
 2. Ve a la pestaña **Settings** (Configuración) en la barra superior del repositorio.
 3. En la barra lateral izquierda de configuraciones, busca la sección **Pages**.
-4. En el apartado **Build and deployment**, bajo **Source**, asegúrate de tener seleccionado **Deploy from a branch**.
-5. Debajo, en **Branch**, selecciona la rama **main** y la carpeta **/ (root)**, luego haz clic en **Save** (Guardar).
-6. ¡Listo! En un par de minutos, GitHub te dará un enlace público arriba de esa misma sección para que cualquiera pueda visitar tu CosmoWiki desde internet (por ejemplo: `https://tu-usuario.github.io/wiki-astronomia/`).
+4. En el apartado **Build and deployment**, bajo **Source**, despliega las opciones y selecciona **GitHub Actions** (en lugar de "Deploy from a branch").
+5. ¡Listo! Al seleccionar esa opción, el flujo automático que hemos creado (`.github/workflows/deploy.yml`) se activará inmediatamente.
+6. En un par de minutos, podrás ver tu página pública en la URL que te proveerá GitHub (o en la pestaña **Actions** para seguir el proceso en tiempo real). ¡Cualquier cambio futuro que hagas localmente y subas con `git push` actualizará la web de inmediato!
 
 ---
 
