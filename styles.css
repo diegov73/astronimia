@@ -1,5 +1,5 @@
 /* --------------------------------------------------
-   SISTEMA DE DISEÑO WIKIPEDIA (ESTILO VECTOR)
+   SISTEMA DE DISEÑO WIKIPEDIA (ESTILO VECTOR SIMPLIFICADO)
    -------------------------------------------------- */
 :root {
     /* Paleta Wikipedia */
@@ -15,7 +15,6 @@
     --wp-link-active: #faa700;     /* Naranja clásico al clickar */
     
     --wp-bg-infobox: #f8f9fa;      /* Fondo gris muy claro para fichas e índices */
-    --wp-bg-header-box: #eaecf0;   /* Fondo de encabezados de la infobox */
     
     /* Fuentes Oficiales de Wikipedia */
     --wp-font-serif: "Linux Libertine", "Georgia", "Times New Roman", serif;
@@ -53,153 +52,6 @@ a:visited {
 }
 
 /* --------------------------------------------------
-   BARRA SUPERIOR DE NAVEGACIÓN (#mw-head)
-   -------------------------------------------------- */
-#mw-navigation {
-    position: relative;
-    z-index: 10;
-}
-
-#mw-head {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 176px;
-    height: 7.5em;
-}
-
-/* Herramientas personales (Iniciar sesión, etc.) */
-#personal-tools {
-    position: absolute;
-    top: 0.5em;
-    right: 1.5em;
-    font-size: 0.85em;
-    color: var(--wp-text-secondary);
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-#personal-tools span {
-    color: var(--wp-text-muted);
-}
-
-.personal-link {
-    color: var(--wp-link-color);
-}
-
-/* Contenedores de pestañas y búsqueda */
-#left-navigation {
-    position: absolute;
-    bottom: 0;
-    left: 1.5em;
-    height: 2.5em;
-}
-
-#right-navigation {
-    position: absolute;
-    bottom: 0;
-    right: 1.5em;
-    height: 2.5em;
-    display: flex;
-    align-items: flex-end;
-    gap: 20px;
-}
-
-/* Pestañas Vector de Wikipedia */
-.vector-menu {
-    display: block;
-}
-
-.vector-menu ul {
-    list-style: none;
-    display: flex;
-    align-items: flex-end;
-    height: 100%;
-}
-
-.vector-menu li {
-    background-image: linear-gradient(to top, #eceeed 0%, #ffffff 100%);
-    border: 1px solid var(--wp-border-color);
-    border-bottom: none;
-    margin-right: -1px;
-    height: 2.15em;
-    display: flex;
-    align-items: center;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    transition: background-color 0.15s;
-}
-
-.vector-menu li a {
-    display: block;
-    padding: 0 1em;
-    color: var(--wp-link-color);
-    font-size: 0.9em;
-    font-weight: 400;
-}
-
-.vector-menu li.selected {
-    background-color: var(--wp-bg-content);
-    background-image: none;
-    height: 2.5em;
-    border-bottom: 1px solid var(--wp-bg-content);
-    z-index: 2;
-}
-
-.vector-menu li.selected a {
-    color: var(--wp-text-main);
-    font-weight: 500;
-}
-
-/* Buscador de Wikipedia */
-#p-search {
-    margin-bottom: 4px;
-}
-
-#simpleSearch {
-    position: relative;
-    border: 1px solid var(--wp-border-color);
-    background-color: #ffffff;
-    height: 24px;
-    width: 250px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-}
-
-#simpleSearch input {
-    border: none;
-    background: transparent;
-    padding: 2px 8px;
-    width: calc(100% - 24px);
-    font-family: var(--wp-font-sans);
-    font-size: 13px;
-    color: var(--wp-text-main);
-}
-
-#simpleSearch input:focus {
-    outline: none;
-}
-
-#simpleSearch button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    color: var(--wp-text-secondary);
-    width: 24px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-}
-
-#simpleSearch button:hover {
-    color: var(--wp-link-color);
-}
-
-/* --------------------------------------------------
    BARRA LATERAL IZQUIERDA (#mw-panel)
    -------------------------------------------------- */
 #mw-panel {
@@ -209,14 +61,14 @@ a:visited {
     width: 176px;
     padding-top: 1.5em;
     padding-left: 1.5em;
-    padding-right: 0.5em;
+    padding-right: 1.25em;
     background-color: var(--wp-bg-main);
 }
 
-/* Logo Oficial (Réplica Dinámica CSS) */
+/* Logo Oficial */
 #p-logo {
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 .mw-wiki-logo {
@@ -264,6 +116,54 @@ a:visited {
     margin-top: 2px;
 }
 
+/* Buscador Limpio en la Barra Lateral */
+.sidebar-search {
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+#simpleSearch {
+    position: relative;
+    border: 1px solid var(--wp-border-color);
+    background-color: #ffffff;
+    height: 28px;
+    width: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+#simpleSearch input {
+    border: none;
+    background: transparent;
+    padding: 2px 8px;
+    width: calc(100% - 24px);
+    font-family: var(--wp-font-sans);
+    font-size: 12px;
+    color: var(--wp-text-main);
+}
+
+#simpleSearch input:focus {
+    outline: none;
+}
+
+#simpleSearch button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--wp-text-secondary);
+    width: 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
+#simpleSearch button:hover {
+    color: var(--wp-link-color);
+}
+
 /* Portales y Listados del Menú Lateral */
 .portal {
     margin-bottom: 1.5em;
@@ -306,16 +206,12 @@ a:visited {
     text-decoration: underline;
 }
 
-.lang-link {
-    font-style: normal;
-}
-
 /* --------------------------------------------------
    CONTENEDOR DEL CUERPO (#content)
    -------------------------------------------------- */
 #content {
     margin-left: 176px;
-    padding: 1.25em 1.5em 1.5em 1.5em;
+    padding: 1.5em 2.5em 2.5em 2.5em;
     background-color: var(--wp-bg-content);
     border: 1px solid var(--wp-border-color);
     border-right: none;
@@ -331,7 +227,7 @@ a:visited {
     font-weight: normal;
     border-bottom: 1px solid var(--wp-border-color);
     padding-bottom: 0.2em;
-    margin-top: 2.2em; /* Compensa la posición del mw-head */
+    margin-top: 0.5em; /* Margen superior limpio sin header arriba */
     margin-bottom: 0.25em;
     line-height: 1.3;
 }
@@ -346,7 +242,7 @@ a:visited {
 /* Estilización del Cuerpo del Artículo enciclopédico */
 .vector-body {
     position: relative;
-    max-width: 980px;
+    max-width: 900px; /* Ancho cómodo de lectura sin infobox lateral */
     color: var(--wp-text-main);
     font-size: 14px;
 }
@@ -389,98 +285,6 @@ a:visited {
 
 .vector-body li {
     margin-bottom: 0.3em;
-}
-
-/* --------------------------------------------------
-   FICHA DE INFORMACIÓN (INFOBOX)
-   -------------------------------------------------- */
-.infobox {
-    border: 1px solid var(--wp-border-color);
-    background-color: var(--wp-bg-infobox);
-    color: var(--wp-text-main);
-    margin: 0.5em 0 1em 1.5em;
-    padding: 0.4em;
-    float: right;
-    clear: right;
-    width: 290px;
-    font-size: 88%;
-    line-height: 1.5;
-    border-spacing: 2px;
-}
-
-.infobox-title {
-    font-size: 125%;
-    font-weight: bold;
-    text-align: center;
-    background-color: var(--wp-bg-header-box);
-    padding: 0.3em;
-    border-radius: 2px;
-    font-family: var(--wp-font-serif);
-}
-
-.infobox-image {
-    text-align: center;
-    padding: 0.5em 0;
-}
-
-.infobox-image-placeholder {
-    height: 120px;
-    background: linear-gradient(135deg, #1d2127 0%, #0d0f12 100%);
-    border: 1px solid var(--wp-border-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--wp-bg-infobox);
-    border-radius: 2px;
-}
-
-.infobox-image-placeholder i {
-    font-size: 2.2em;
-    color: #58a6ff;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 0 5px rgba(88,166,255,0.4));
-}
-
-.infobox-image-placeholder span {
-    font-size: 11px;
-    font-family: var(--wp-font-serif);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.infobox-image-caption {
-    font-size: 90%;
-    color: var(--wp-text-secondary);
-    padding-top: 4px;
-    line-height: 1.3;
-}
-
-.infobox-section-header {
-    background-color: var(--wp-bg-header-box);
-    font-weight: bold;
-    text-align: center;
-    padding: 0.25em;
-    font-size: 95%;
-}
-
-.infobox th[scope="row"] {
-    text-align: left;
-    width: 35%;
-    vertical-align: top;
-    padding: 0.3em;
-    font-weight: bold;
-}
-
-.infobox td {
-    padding: 0.3em;
-    vertical-align: top;
-}
-
-.infobox-list ul {
-    margin-left: 1.2em;
-    margin-top: 2px;
-    margin-bottom: 2px;
 }
 
 /* --------------------------------------------------
@@ -649,124 +453,12 @@ sup a {
 }
 
 /* --------------------------------------------------
-   CATEGORÍAS DE WIKIPEDIA (#catlinks)
-   -------------------------------------------------- */
-.catlinks {
-    border: 1px solid var(--wp-border-color);
-    background-color: var(--wp-bg-infobox);
-    padding: 8px;
-    margin-top: 3.5em;
-    clear: both;
-    font-size: 88%;
-    border-radius: 2px;
-}
-
-.mw-normal-catlinks {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.mw-normal-catlinks ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 5px;
-}
-
-.mw-normal-catlinks li {
-    margin: 0;
-    display: inline;
-}
-
-.mw-normal-catlinks li::after {
-    content: " |";
-    color: var(--wp-border-color);
-    padding-left: 5px;
-}
-
-.mw-normal-catlinks li:last-child::after {
-    content: "";
-}
-
-/* --------------------------------------------------
-   SIMULADOR DE PÁGINA DE DISCUSIÓN WIKI
-   -------------------------------------------------- */
-.talk-banner {
-    border: 1px solid #c8ccd1;
-    background-color: #fef6e4; /* Tono beige suave clásico de avisos */
-    border-left: 8px solid #f5b041;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    font-size: 0.95em;
-    border-radius: 2px;
-}
-
-.talk-banner-icon {
-    font-size: 2em;
-    color: #f39c12;
-}
-
-.talk-thread {
-    margin-bottom: 2.5rem;
-}
-
-.talk-thread-title {
-    font-family: var(--wp-font-serif);
-    font-size: 1.35em !important;
-    font-weight: normal;
-    border-bottom: 1px solid var(--wp-border-color);
-    padding-bottom: 0.2em;
-    margin-top: 1.5em;
-    margin-bottom: 1rem;
-}
-
-.talk-comment {
-    background-color: #ffffff;
-    border: 1px solid var(--wp-border-color);
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.talk-author {
-    font-weight: bold;
-    color: var(--wp-link-color);
-    font-size: 0.9em;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid #eaecf0;
-    padding-bottom: 4px;
-}
-
-.talk-author span {
-    font-weight: normal;
-    color: var(--wp-text-secondary);
-}
-
-.talk-comment p {
-    margin-bottom: 0;
-    text-align: justify;
-}
-
-.talk-reply {
-    margin-left: 2.5rem;
-    border-left: 3px solid var(--wp-border-color);
-    background-color: var(--wp-bg-infobox);
-}
-
-/* --------------------------------------------------
    PIE DE PÁGINA WIKIPEDIA (#footer)
    -------------------------------------------------- */
 #footer {
     border-top: 1px solid var(--wp-border-color);
-    padding: 1.25em;
+    padding: 1.25em 0;
     margin-top: 4em;
-    margin-left: 176px;
     font-size: 0.85em;
     color: var(--wp-text-secondary);
     line-height: 1.8;
@@ -794,66 +486,10 @@ sup a {
     display: inline;
 }
 
-#footer-icons {
-    float: right;
-    margin-top: -30px;
-    display: flex;
-    gap: 10px;
-}
-
-@media (max-width: 900px) {
-    #footer-icons {
-        float: none;
-        margin-top: 15px;
-        justify-content: center;
-    }
-}
-
 /* --------------------------------------------------
    ADAPTATIVIDAD (RESPONSIVE)
    -------------------------------------------------- */
 @media (max-width: 850px) {
-    #mw-head {
-        position: relative;
-        left: 0;
-        height: auto;
-        padding-top: 4em;
-        background-color: var(--wp-bg-main);
-        border-bottom: 1px solid var(--wp-border-color);
-    }
-
-    #personal-tools {
-        position: absolute;
-        top: 0.5em;
-        left: 1.5em;
-        right: auto;
-    }
-
-    #left-navigation {
-        position: relative;
-        left: 1.5em;
-        bottom: 0;
-        margin-top: 10px;
-    }
-
-    #right-navigation {
-        position: relative;
-        right: auto;
-        left: 1.5em;
-        bottom: 0;
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        gap: 10px;
-        padding-bottom: 10px;
-    }
-
-    #p-search {
-        margin-bottom: 0;
-    }
-
     #mw-panel {
         position: relative;
         width: 100%;
@@ -874,6 +510,11 @@ sup a {
         padding-bottom: 0;
     }
 
+    .sidebar-search {
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+
     .portal {
         flex: 1;
         min-width: 180px;
@@ -886,13 +527,6 @@ sup a {
 
     .firstHeading {
         margin-top: 1em;
-    }
-
-    .infobox {
-        float: none;
-        width: 100%;
-        margin-left: 0;
-        margin-top: 1.5em;
     }
 
     .thumb {
@@ -910,15 +544,10 @@ sup a {
     }
 
     #footer {
-        margin-left: 0;
         text-align: center;
     }
 
     #footer-places {
         justify-content: center;
-    }
-
-    .talk-reply {
-        margin-left: 1rem;
     }
 }

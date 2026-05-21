@@ -3,110 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Artículo enciclopédico sobre las interacciones y fusiones de galaxias: dinámica de cúmulos, fenómenos físicos y consecuencias morfológicas.">
-    <title>Interacciones y fusiones de galaxias - Wikipedia, la enciclopedia libre</title>
+    <meta name="description" content="Artículo de divulgación simplificado sobre las interacciones y fusiones de galaxias: dinámica de cúmulos y fenómenos físicos.">
+    <title>Interacciones y fusiones de galaxias - CosmoWiki</title>
     <!-- Favicon estilo wiki -->
     <link rel="shortcut icon" href="https://es.wikipedia.org/static/favicon/wikipedia.ico">
-    <!-- FontAwesome para iconos de la interfaz de Wikipedia -->
+    <!-- FontAwesome para iconos de la barra lateral -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Interfaz de Navegación Superior -->
-    <header id="mw-navigation">
-        <div id="mw-head">
-            <!-- Barra superior de usuario ficticio -->
-            <div id="personal-tools">
-                <span><i class="fa-regular fa-user"></i> No has iniciado sesión</span>
-                <a href="#" class="personal-link">Discusión</a>
-                <a href="#" class="personal-link">Contribuciones</a>
-                <a href="#" class="personal-link">Crear una cuenta</a>
-                <a href="#" class="personal-link">Acceder</a>
-            </div>
 
-            <!-- Controles de Pestañas del Artículo -->
-            <div id="left-navigation">
-                <nav id="p-namespaces" class="vector-menu">
-                    <ul>
-                        <li id="ca-nstab-main" class="selected"><a href="#" id="tab-article">Artículo</a></li>
-                        <li id="ca-talk"><a href="#" id="tab-talk">Discusión</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div id="right-navigation">
-                <nav id="p-views" class="vector-menu">
-                    <ul>
-                        <li id="ca-view" class="selected"><a href="#">Leer</a></li>
-                        <li id="ca-viewsource"><a href="#" onclick="alert('Esta es una réplica didáctica de Wikipedia para el diplomado. El código fuente está disponible en tu editor.'); return false;">Ver código</a></li>
-                        <li id="ca-history"><a href="#" onclick="alert('Versión actual del artículo: 21 de mayo de 2026. Versión inicial y única para el proyecto.'); return false;">Ver historial</a></li>
-                    </ul>
-                </nav>
-                <!-- Buscador de Wikipedia -->
-                <div id="p-search" role="search">
-                    <form id="searchform">
-                        <div id="simpleSearch">
-                            <input type="search" name="search" placeholder="Buscar en Wikipedia" id="searchInput" autocomplete="off" aria-label="Buscar en Wikipedia">
-                            <button type="submit" name="go" id="searchButton" aria-label="Ir"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Barra Lateral Izquierda (Sidebar de Wikipedia) -->
+    <!-- Barra Lateral Izquierda (Sidebar Simplificado) -->
     <aside id="mw-panel">
         <div id="p-logo" role="banner">
-            <a class="mw-wiki-logo" href="#" title="Visitar la página principal">
+            <a class="mw-wiki-logo" href="#" title="Portada de CosmoWiki">
                 <div class="wiki-logo-placeholder">
                     <span class="w-logo">W</span>
                     <span class="wiki-subtitle">WIKIPEDIA</span>
-                    <span class="wiki-subtext">La enciclopedia libre</span>
+                    <span class="wiki-subtext">Edición Diplomado 2026</span>
                 </div>
             </a>
         </div>
 
+        <!-- Buscador Limpio e Integrado en la Barra Lateral -->
+        <div id="p-search" class="sidebar-search">
+            <div id="simpleSearch">
+                <input type="search" placeholder="Buscar en este artículo..." id="searchInput" autocomplete="off" aria-label="Buscar en la wiki">
+                <button type="button" id="searchButton" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+
         <nav class="portal" id="p-navigation" aria-labelledby="p-navigation-label">
-            <h3 id="p-navigation-label">Navegación</h3>
+            <h3 id="p-navigation-label">Navegación rápida</h3>
             <div class="body">
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-house-chimney"></i> Portada</a></li>
-                    <li><a href="#"><i class="fa-solid fa-users"></i> Portal de la comunidad</a></li>
-                    <li><a href="#"><i class="fa-solid fa-newspaper"></i> Actualidad</a></li>
-                    <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Cambios recientes</a></li>
-                    <li><a href="#"><i class="fa-solid fa-file-circle-plus"></i> Páginas nuevas</a></li>
-                    <li><a href="#"><i class="fa-solid fa-shuffle"></i> Página aleatoria</a></li>
-                    <li><a href="#"><i class="fa-solid fa-circle-question"></i> Ayuda</a></li>
-                    <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Donaciones</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <nav class="portal" id="p-tb" aria-labelledby="p-tb-label">
-            <h3 id="p-tb-label">Herramientas</h3>
-            <div class="body">
-                <ul>
-                    <li><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i> Lo que enlaza aquí</a></li>
-                    <li><a href="#"><i class="fa-solid fa-share-nodes"></i> Cambios relacionados</a></li>
-                    <li><a href="#"><i class="fa-solid fa-arrow-up-from-bracket"></i> Subir archivo</a></li>
-                    <li><a href="#"><i class="fa-solid fa-file-invoice"></i> Páginas especiales</a></li>
-                    <li><a href="#"><i class="fa-solid fa-link"></i> Enlace permanente</a></li>
-                    <li><a href="#"><i class="fa-solid fa-circle-info"></i> Información de la página</a></li>
-                    <li><a href="#"><i class="fa-solid fa-quote-left"></i> Citar esta página</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <nav class="portal" id="p-lang" aria-labelledby="p-lang-label">
-            <h3 id="p-lang-label">En otros idiomas</h3>
-            <div class="body">
-                <ul>
-                    <li><a href="#" class="lang-link">English</a></li>
-                    <li><a href="#" class="lang-link">Deutsch</a></li>
-                    <li><a href="#" class="lang-link">Français</a></li>
-                    <li><a href="#" class="lang-link">Italiano</a></li>
-                    <li><a href="#" class="lang-link">Português</a></li>
+                    <li><a href="#intro"><i class="fa-solid fa-angle-right"></i> Introducción</a></li>
+                    <li><a href="#estrellas"><i class="fa-solid fa-angle-right"></i> ¿Chocan las estrellas?</a></li>
+                    <li><a href="#mecanismos"><i class="fa-solid fa-angle-right"></i> Mecanismos de fusión</a></li>
+                    <li><a href="#interacciones_cercanas"><i class="fa-solid fa-angle-right"></i> Interacciones cercanas</a></li>
+                    <li><a href="#casos_famosos"><i class="fa-solid fa-angle-right"></i> Casos emblemáticos</a></li>
+                    <li><a href="#consecuencias"><i class="fa-solid fa-angle-right"></i> Consecuencias evolutivas</a></li>
+                    <li><a href="#recursos_estudio"><i class="fa-solid fa-angle-right"></i> Recursos educativos</a></li>
                 </ul>
             </div>
         </nav>
@@ -114,72 +51,17 @@
 
     <!-- Contenedor del Cuerpo Principal del Artículo -->
     <main id="content" class="mw-body" role="main">
-        <!-- Contenido de la pestaña principal: ARTÍCULO -->
         <div id="article-content-wrapper">
             <h1 id="firstHeading" class="firstHeading">Interacciones y fusiones de galaxias</h1>
             
             <div id="bodyContent" class="vector-body">
-                <div id="siteSub">De Wikipedia, la enciclopedia libre</div>
+                <div id="siteSub">De Wikipedia, la enciclopedia de astrofísica</div>
                 <div id="contentSub"></div>
 
                 <!-- Párrafo introductorio principal -->
                 <p>Las <b>interacciones y fusiones de galaxias</b> (también conocidas en astrofísica bajo los términos en inglés <i>galaxy interactions and mergers</i>) constituyen procesos dinámicos y evolutivos fundamentales que ocurren a lo largo de miles de millones de años en el universo.<sup><a href="#cite_note-1">[1]</a></sup> Estos encuentros están regulados enteramente por la fuerza de gravedad y se desarrollan con especial frecuencia en regiones del espacio de alta densidad galáctica, tales como los grupos y cúmulos de galaxias.<sup><a href="#cite_note-2">[2]</a></sup></p>
 
                 <p>Lejos de provocar colisiones directas y destructivas entre estrellas individuales, las interacciones galácticas consisten principalmente en una compleja fricción y deformación gravitacional que altera la morfología de las galaxias implicadas, redistribuye sus masas gaseosas y estelares, y propicia espectaculares fenómenos físicos secundarios tales como intensos brotes de formación de nuevas estrellas (<i>starbursts</i>) o la activación de agujeros negros supermasivos en sus núcleos.<sup><a href="#cite_note-3">[3]</a></sup></p>
-
-                <!-- Ficha de Información (Infobox) de Wikipedia -->
-                <table class="infobox">
-                    <tbody>
-                        <tr>
-                            <th colspan="2" class="infobox-title">Interacciones y fusiones galácticas</th>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="infobox-image">
-                                <div class="infobox-image-placeholder">
-                                    <i class="fa-solid fa-circle-nodes"></i>
-                                    <span>Colisión Galáctica</span>
-                                </div>
-                                <div class="infobox-image-caption">Simulación esquemática del acoplamiento gravitatorio entre dos galaxias.</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colspan="2" class="infobox-section-header">Información general</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">Tipo de fenómeno</th>
-                            <td>Dinámico, gravitacional y astrofísico</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Escala espacial</th>
-                            <td>Kilopársecs (kpc) a Megapársecs (Mpc)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Escala temporal</th>
-                            <td>500 a 2000 millones de años (Ma)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Medios afectados</th>
-                            <td>Medio interestelar (<b>ISM</b>)<br>Medio intracumular (<b>ICM</b>)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Ejemplos famosos</th>
-                            <td>Galaxias Antena (NGC 4038/4039)<br>Galaxia del Remolino (M51)<br>Galaxias de los Ratones (NGC 4676)<br>Lactómeda (Futura fusión local)</td>
-                        </tr>
-                        <tr>
-                            <th colspan="2" class="infobox-section-header">Consecuencias físicas</th>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="infobox-list">
-                                <ul>
-                                    <li>Brotes de formación estelar (<i>starbursts</i>)</li>
-                                    <li>Despojamiento de gas interestelar</li>
-                                    <li>Activación de Núcleos Activos de Galaxias (<b>AGN</b>)</li>
-                                    <li>Transición morfológica (espiral a elíptica)</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
 
                 <!-- Índice de contenidos (Table of Contents) de Wikipedia -->
                 <div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading">
@@ -248,14 +130,13 @@
 
                 <!-- Sección 4: Interacciones cercanas en cúmulos galácticos (Diagrama de Pizarra) -->
                 <h2 id="interacciones_cercanas"><span class="mw-headline">Interacciones cercanas en cúmulos galácticos</span></h2>
-                <p>Cuando las galaxias habitan dentro de cúmulos de galaxias sumamente densos y calientes, experimentan una serie de fenómenos específicos condicionados por las fuerzas gravitatorias mutuas y su paso a través del <b>medio intracumular (ICM)</b> (el plasma denso y extremadamente caliente de rayos X que llena el espacio entre las galaxias de un cúmulo).<sup><a href="#cite_note-7">[7]</a></sup></p>
-                <p>Estos procesos modifican drásticamente el <b>medio interestelar (ISM)</b> (gas frío y polvo dentro de la galaxia) y su estructura estelar.</p>
+                <p>Cuando las galaxias habitan dentro de cúmulos de galaxias sumamente densos y calientes, experimentan una serie de fenómenos específicos condicionados por las fuerzas gravitatorias mutuas y su paso a través del <b>medio intracumular (ICM)</b> (el plasma denso y extremadamente caliente de rayos X que llena el espacio entre las galaxias de un cúmulo).<sup><a href="#cite_note-7">[7]</a></sup> Estos procesos modifican drásticamente el <b>medio interestelar (ISM)</b> (gas frío y polvo dentro de la galaxia) y su estructura estelar.</p>
 
                 <!-- Miniatura (Thumbnail) de la Pizarra de Wikipedia -->
                 <div class="thumb tright">
                     <div class="thumbinner" style="width: 402px;">
                         <a href="interacciones_cercanas.png" target="_blank">
-                            <img src="interacciones_cercanas.png" alt="Pizarra interactiva de interacciones cercanas" class="thumbimage" style="width: 400px;">
+                            <img src="interacciones_cercanas.png" alt="Pizarra de interacciones cercanas" class="thumbimage" style="width: 400px;">
                         </a>
                         <div class="thumbcaption">
                             <div class="magnify"><a href="interacciones_cercanas.png" target="_blank" title="Ampliar"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></a></div>
@@ -273,7 +154,7 @@
                 <p>El <b>truncamiento por marea</b> se origina por el acoplamiento gravitatorio directo que sufre una galaxia al pasar cerca de los pozos gravitatorios masivos de otras galaxias o del centro mismo del cúmulo. Las intensas fuerzas de marea "arrancan" gravitacionalmente la materia estelar y del ISM situada en la periferia de la galaxia, limitando físicamente el tamaño máximo del disco y comprimiendo a la galaxia a un radio visible mucho más estrecho y delimitado.</p>
 
                 <h3 id="presion_ariete"><span class="mw-headline">Despojamiento por presión de ariete (<i>Ram-pressure stripping</i>)</span></h3>
-                <p>El <b>despojamiento por presión de ariete</b> (o presión dinámica) es un proceso puramente hidrodinámico. Cuando una galaxia espiral se desplaza a velocidades supersónicas (miles de kilómetros por segundo) a través del plasma denso y caliente del ICM, el gas de la galaxia (ISM) experimenta un potente "viento cósmico" en contra.<sup><a href="#cite_note-10">[10]</a></sup> Si la presión dinámica del medio intracumular vence la fuerza de gravedad con la que la galaxia retiene su propio gas, el ISM frío es literalmente "barrido" y arrastrado hacia afuera de la galaxia, creando largas colas gaseosas de aspecto similar al de un cometa y dejando a la galaxia completamente desprovista de gas frío, deteniendo abruptamente su formación de nuevas estrellas (proceso conocido como apagado o <i>quenching</i>).</p>
+                <p>El <b>despojamiento por presión de ariete</b> (o presión dinámica) es un proceso puramente hidrodinámico. Cuando una galaxia espiral se desplaza a velocidades supersónicas (miles de kilómetros por segundo) a través del plasma denso y caliente del ICM, el gas de la galaxia (ISM) experimenta un potente "viento cósmico" en contra.<sup><a href="#cite_note-10">[10]</a></sup> Si la presión dinámica del medio intracumular vence la fuerza de gravedad con la que la galaxia retiene su propio gas, el ISM frío es literalmente "barrido" y arrastrado hacia afuera de la galaxia, creando largas colas gaseosas de aspecto similar al de un cometa y dejando a la galaxia completamente desprovista de gas frío, deteniendo abruptamente su formación de nuevas estrellas.</p>
 
                 <h3 id="evaporacion_termica"><span class="mw-headline">Evaporación térmica (<i>Thermal evaporation</i>)</span></h3>
                 <p>La <b>evaporación térmica</b> ocurre cuando el gas interestelar frío (ISM) de una galaxia entra en contacto directo con el plasma a altísimas temperaturas del medio intracumular (ICM). Debido a la conducción térmica a gran escala entre ambos medios, la energía térmica fluye desde el ICM caliente hacia el ISM frío, calentando este último hasta temperaturas donde el gas ya no puede mantenerse gravitacionalmente ligado a la galaxia, evaporándose hacia el espacio intergaláctico del cúmulo.<sup><a href="#cite_note-7">[7]</a></sup></p>
@@ -341,93 +222,20 @@
                     </ol>
                 </div>
             </div>
-
-            <!-- Caja de Categorías de Wikipedia -->
-            <div id="catlinks" class="catlinks" data-mw="interface">
-                <div id="mw-normal-catlinks" class="mw-normal-catlinks">
-                    <a href="#" title="Especial:Categorías">Categorías</a>: 
-                    <ul>
-                        <li><a href="#">Astrofísica</a></li>
-                        <li><a href="#">Dinámica galáctica</a></li>
-                        <li><a href="#">Evolución de galaxias</a></li>
-                        <li><a href="#">Cúmulos de galaxias</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
-        <!-- Contenido de la pestaña secundaria: DISCUSIÓN (Simulación didáctica) -->
-        <div id="talk-content-wrapper" style="display: none;">
-            <h1 id="talkHeading" class="firstHeading">Discusión:Interacciones y fusiones de galaxias</h1>
-            
-            <div id="talkBodyContent" class="vector-body">
-                <div id="siteSub">De Wikipedia, la enciclopedia libre</div>
-                <div id="talkContentSub">Página de discusión y debate académico para el Diplomado en Astronomía.</div>
-
-                <div class="talk-banner">
-                    <div class="talk-banner-icon"><i class="fa-solid fa-comments"></i></div>
-                    <div class="talk-banner-text">
-                        <strong>Foro de Debate e Hilo Académico:</strong> Esta página simula la sección de discusión de Wikipedia. Aquí los alumnos de diversas carreras y el profesorado del diplomado debaten dudas terminológicas y conceptuales sobre el artículo. ¡Eres libre de leer sus contribuciones!
-                    </div>
-                </div>
-
-                <!-- Hilo de discusión 1 -->
-                <div class="talk-thread">
-                    <h2 class="talk-thread-title">1. ¿Deberíamos traducir "Ram-pressure stripping" como "Despojo por presión de ariete"?</h2>
-                    <div class="talk-comment">
-                        <div class="talk-author">Clara_Gomez_Fisica (Estudiante de Ciencias) <span>escribió:</span></div>
-                        <p>Hola a todos. Estaba leyendo la sección 4.3 y me surge una duda. En varias lecturas en español he visto el término traducido simplemente como "presión dinámica" o "despojo por presión dinámica". Sin embargo, "presión de ariete" suena muy descriptivo e histórico. ¿Qué terminología es preferible para nuestro ensayo final del diplomado?</p>
-                    </div>
-                    <div class="talk-comment talk-reply">
-                        <div class="talk-author">Dr_Carlos_Mendoza (Profesor de Astrofísica) <span>escribió:</span></div>
-                        <p>Excelente pregunta, Clara. En la literatura astrofísica formal en español, ambos términos son válidos. "Presión dinámica" es más riguroso en cuanto a mecánica de fluidos, pero "presión de ariete" (que viene del inglés <i>ram-pressure</i>) se usa mucho para ilustrar de forma intuitiva cómo el medio intracumular golpea a la galaxia como un ariete golpeando las puertas de un castillo. Para tu ensayo, te sugiero mencionar ambos al inicio y luego usar el que te resulte más cómodo. ¡Saludos!</p>
-                    </div>
-                </div>
-
-                <!-- Hilo de discusión 2 -->
-                <div class="talk-thread">
-                    <h2 class="talk-thread-title">2. Duda sobre la colisión de estrellas individuales en Lactómeda</h2>
-                    <div class="talk-comment">
-                        <div class="talk-author">Diego_Disenador (Estudiante de Artes y Humanidades) <span>escribió:</span></div>
-                        <p>Me resulta asombroso y sumamente contraintuitivo que en una colisión galáctica las estrellas no choquen mecánicamente. La analogía de las cerezas en Madrid y Moscú me ayudó muchísimo a visualizarlo como diseñador. Sin embargo, ¿qué pasa con los sistemas solares? ¿Las órbitas de los planetas se desordenarían o saldrían volando?</p>
-                    </div>
-                    <div class="talk-comment talk-reply">
-                        <div class="talk-author">Astrobitacora_Fan (Colaborador Wiki) <span>escribió:</span></div>
-                        <p>Hola Diego. Es una duda muy común. Los estudios dinámicos y simulaciones muestran que la inmensa mayoría de las estrellas (con sus planetas) conservan la estabilidad interna de sus órbitas. Las fuerzas de marea de la fusión afectan a las estrellas a nivel macro (es decir, alteran la órbita de la estrella alrededor del centro de la galaxia entera), pero las distancias planeta-estrella son extremadamente pequeñas en comparación. Por ejemplo, la Tierra está a solo 8 minutos luz del Sol, mientras que la estrella vecina más cercana está a 4 años luz. Así que, aunque el Sol sea arrojado a los suburbios de Lactómeda, la Tierra seguirá girando alrededor del Sol sin notar físicamente la diferencia.</p>
-                    </div>
-                </div>
-
-                <!-- Hilo de discusión 3 -->
-                <div class="talk-thread">
-                    <h2 class="talk-thread-title">3. Incorporación del maravilloso esquema de la pizarra de Aeree Chung</h2>
-                    <div class="talk-comment">
-                        <div class="talk-author">Lorena_Educa (Estudiante de Pedagogía) <span>escribió:</span></div>
-                        <p>¡Me encanta la ilustración de la pizarra escolar! Explica los 6 procesos dinámicos de manera sumamente amena e intuitiva. Es un material excelente para usar en aulas de colegio de educación básica. Felicito al autor del artículo por haber incorporado este esquema científico e ilustrativo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pie de Página Clásico de Wikipedia -->
+        <!-- Pie de Página Clásico de Wikipedia (Simplificado) -->
         <footer id="footer" role="contentinfo">
             <ul id="footer-info">
-                <li id="footer-info-lastmod"> Esta página se editó por última vez el 21 de mayo de 2026, a las 15:00 (UTC).</li>
-                <li id="footer-info-copyright">El texto está disponible bajo la <a href="https://es.wikipedia.org/wiki/Wikipedia:Texto_de_la_Licencia_Creative_Commons_Atribuci%C3%B3n-CompartirIgual_4.0_Internacional">Licencia Creative Commons Atribución-CompartirIgual 4.0</a>; pueden aplicarse cláusulas adicionales. Al usar este sitio, aceptas nuestros <a href="https://wikimediafoundation.org/wiki/Terms_of_Use/es">términos de uso</a> y nuestra <a href="https://wikimediafoundation.org/wiki/Privacy_Policy/es">política de privacidad</a>. <br>Wikipedia® es una marca registrada de la <a href="https://wikimediafoundation.org">Fundación Wikimedia, Inc.</a>, una organización sin ánimo de lucro.</li>
+                <li id="footer-info-lastmod"> Esta página se editó por última vez el 21 de mayo de 2026, a las 15:10 (UTC).</li>
+                <li id="footer-info-copyright">El texto y las ilustraciones científicas de este artículo están disponibles para fines educativos en el Diplomado en Astronomía 2026. Basado en contenido libre y con referencias formales de Wikipedia.</li>
             </ul>
             <ul id="footer-places">
-                <li><a href="#">Normas de privacidad</a></li>
-                <li><a href="#">Acerca de Wikipedia</a></li>
+                <li><a href="#">Normas de la página</a></li>
+                <li><a href="#">Acerca de CosmoWiki</a></li>
                 <li><a href="#">Limitación de responsabilidad</a></li>
-                <li><a href="#">Código de conducta</a></li>
-                <li><a href="#">Desarrolladores</a></li>
-                <li><a href="#">Estadísticas</a></li>
-                <li><a href="#">Declaración de cookies</a></li>
-                <li><a href="#">Versión para móviles</a></li>
+                <li><a href="#">Código de conducta del Diplomado</a></li>
             </ul>
-            <div id="footer-icons">
-                <a href="https://wikimediafoundation.org/"><img src="https://es.wikipedia.org/static/images/footer/wikimedia-button.png" alt="Wikimedia Foundation" width="88" height="31" loading="lazy"></a>
-                <a href="https://www.mediawiki.org/"><img src="https://es.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a>
-            </div>
         </footer>
     </main>
 
