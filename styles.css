@@ -1,50 +1,29 @@
 /* --------------------------------------------------
-   SISTEMA DE DISEÑO & VARIABLES GLOBALES
+   SISTEMA DE DISEÑO WIKIPEDIA (ESTILO VECTOR)
    -------------------------------------------------- */
 :root {
-    /* Paleta de Colores Estelares */
-    --bg-main: #0b0c10;          /* Negro espacial profundo */
-    --bg-sidebar: #1f2833;       /* Azul pizarra oscuro para la barra lateral */
-    --bg-card: #161b22;          /* Tarjetas oscuras con profundidad */
-    --bg-card-hover: #21262d;    /* Hover de tarjetas */
-    --border-color: #30363d;     /* Bordes finos elegantes */
+    /* Paleta Wikipedia */
+    --wp-bg-main: #f6f6f6;         /* Fondo gris claro general de Wikipedia */
+    --wp-bg-content: #ffffff;      /* Fondo blanco puro para el artículo */
+    --wp-border-color: #a2a9b1;    /* Gris clásico de bordes y separadores */
+    --wp-text-main: #202122;       /* Texto oscuro casi negro de Wikipedia */
+    --wp-text-secondary: #54595d;  /* Texto gris oscuro de Wikipedia */
+    --wp-text-muted: #72777d;      /* Texto gris claro para notas y fechas */
     
-    --text-primary: #f0f6fc;     /* Blanco suave de alta lectura */
-    --text-secondary: #8b949e;   /* Gris de contraste medio para descripciones */
-    --text-muted: #484f58;       /* Gris oscuro para elementos secundarios */
+    --wp-link-color: #0645ad;      /* Azul clásico de hipervínculo */
+    --wp-link-hover: #3366bb;      /* Azul claro al pasar el ratón */
+    --wp-link-active: #faa700;     /* Naranja clásico al clickar */
     
-    --accent-blue: #58a6ff;      /* Azul estelar eléctrico */
-    --accent-blue-glow: rgba(88, 166, 255, 0.15);
-    --accent-purple: #bc8cff;    /* Morado nebulosa */
-    --accent-purple-glow: rgba(188, 140, 255, 0.15);
+    --wp-bg-infobox: #f8f9fa;      /* Fondo gris muy claro para fichas e índices */
+    --wp-bg-header-box: #eaecf0;   /* Fondo de encabezados de la infobox */
     
-    /* Colores para Cajas de Alerta (Callouts) */
-    --color-info: #388bfd;
-    --bg-info: rgba(56, 139, 253, 0.1);
-    --color-warning: #d29922;
-    --bg-warning: rgba(210, 153, 34, 0.1);
-    --color-success: #3fb950;
-    --bg-success: rgba(63, 185, 80, 0.1);
-
-    /* Fuentes */
-    --font-titles: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
-
-    /* Sombras y Radios */
-    --radius-sm: 6px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    --glow-blue: 0 0 15px rgba(88, 166, 255, 0.3);
-    
-    /* Transiciones */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Fuentes Oficiales de Wikipedia */
+    --wp-font-serif: "Linux Libertine", "Georgia", "Times New Roman", serif;
+    --wp-font-sans: sans-serif, "Arial", "Helvetica";
 }
 
 /* --------------------------------------------------
-   ESTILOS GENERALES Y ESTRUCTURA DE LA APP
+   ESTILOS GENERALES Y ESTRUCTURA
    -------------------------------------------------- */
 * {
     box-sizing: border-box;
@@ -52,767 +31,894 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 16px;
+    background-color: var(--wp-bg-main);
+    color: var(--wp-text-main);
+    font-family: var(--wp-font-sans);
+    font-size: 14px;
     line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
-.app-container {
-    display: flex;
-    min-height: 100vh;
-    position: relative;
-}
-
-/* --------------------------------------------------
-   BARRA LATERAL (SIDEBAR)
-   -------------------------------------------------- */
-.sidebar {
-    width: 280px;
-    background-color: var(--bg-sidebar);
-    border-right: 1px solid var(--border-color);
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    transition: var(--transition-smooth);
-}
-
-.sidebar-header {
-    margin-bottom: 2rem;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: var(--font-titles);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
-}
-
-.logo i {
-    color: var(--accent-blue);
-    font-size: 1.6rem;
-    filter: drop-shadow(0 0 5px var(--accent-blue));
-}
-
-.tagline {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 0.25rem;
-    padding-left: 2.25rem;
-}
-
-/* Buscador en Barra Lateral */
-.search-box {
-    position: relative;
-    margin-bottom: 2rem;
-}
-
-.search-box i {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    transition: var(--transition-smooth);
-}
-
-.search-box input {
-    width: 100%;
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    color: var(--text-primary);
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
-    font-size: 0.9rem;
-    font-family: var(--font-body);
-    transition: var(--transition-smooth);
-}
-
-.search-box input:focus {
-    outline: none;
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 0 2px var(--accent-blue-glow);
-}
-
-.search-box input:focus + i {
-    color: var(--accent-blue);
-}
-
-/* Menú de Navegación */
-.nav-menu {
-    flex: 1;
-}
-
-.nav-menu ul {
-    list-style: none;
-}
-
-.nav-menu li {
-    margin-bottom: 0.5rem;
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--text-secondary);
+a {
+    color: var(--wp-link-color);
     text-decoration: none;
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    transition: var(--transition-smooth);
 }
 
-.nav-link i {
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
+a:hover {
+    text-decoration: underline;
 }
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--text-primary);
-}
-
-.nav-link.active {
-    background-color: var(--accent-blue-glow);
-    color: var(--accent-blue);
-    border-left: 3px solid var(--accent-blue);
-    padding-left: calc(1rem - 3px);
-}
-
-/* Footer de Barra Lateral */
-.sidebar-footer {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    text-align: center;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.75rem;
-}
-
-.social-icons a {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    transition: var(--transition-smooth);
-}
-
-.social-icons a:hover {
-    color: var(--accent-blue);
-    transform: translateY(-2px);
+a:visited {
+    color: #0b0080;
 }
 
 /* --------------------------------------------------
-   ÁREA DE CONTENIDO PRINCIPAL
+   BARRA SUPERIOR DE NAVEGACIÓN (#mw-head)
    -------------------------------------------------- */
-.content-area {
-    flex: 1;
-    margin-left: 280px;
-    padding: 3rem 4rem;
-    max-width: 1200px;
-    width: calc(100% - 280px);
+#mw-navigation {
+    position: relative;
+    z-index: 10;
 }
 
-/* Cabecera Principal */
-.main-header {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 2rem;
-    margin-bottom: 3.5rem;
+#mw-head {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 176px;
+    height: 7.5em;
 }
 
-.main-header h1 {
-    font-family: var(--font-titles);
-    font-size: 3rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-blue) 70%, var(--accent-purple) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.5px;
-    line-height: 1.15;
+/* Herramientas personales (Iniciar sesión, etc.) */
+#personal-tools {
+    position: absolute;
+    top: 0.5em;
+    right: 1.5em;
+    font-size: 0.85em;
+    color: var(--wp-text-secondary);
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
-.subtitle {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
+#personal-tools span {
+    color: var(--wp-text-muted);
+}
+
+.personal-link {
+    color: var(--wp-link-color);
+}
+
+/* Contenedores de pestañas y búsqueda */
+#left-navigation {
+    position: absolute;
+    bottom: 0;
+    left: 1.5em;
+    height: 2.5em;
+}
+
+#right-navigation {
+    position: absolute;
+    bottom: 0;
+    right: 1.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* Pestañas Vector de Wikipedia */
+.vector-menu {
+    display: block;
+}
+
+.vector-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.vector-menu li {
+    background-image: linear-gradient(to top, #eceeed 0%, #ffffff 100%);
+    border: 1px solid var(--wp-border-color);
+    border-bottom: none;
+    margin-right: -1px;
+    height: 2.15em;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    transition: background-color 0.15s;
+}
+
+.vector-menu li a {
+    display: block;
+    padding: 0 1em;
+    color: var(--wp-link-color);
+    font-size: 0.9em;
     font-weight: 400;
 }
 
-/* Estructura de Secciones Wiki */
-.wiki-section {
-    padding-bottom: 3.5rem;
-    margin-bottom: 3.5rem;
-    border-bottom: 1px solid var(--border-color);
+.vector-menu li.selected {
+    background-color: var(--wp-bg-content);
+    background-image: none;
+    height: 2.5em;
+    border-bottom: 1px solid var(--wp-bg-content);
+    z-index: 2;
 }
 
-.wiki-section:last-of-type {
-    border-bottom: none;
-    padding-bottom: 1rem;
-}
-
-.scroll-mt {
-    scroll-margin-top: 2rem;
-}
-
-.section-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--accent-blue);
-    background-color: var(--accent-blue-glow);
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
-}
-
-.wiki-section h2 {
-    font-family: var(--font-titles);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-}
-
-.content-body {
-    max-width: 800px;
-    color: #e6edf3;
-    font-size: 1.05rem;
-}
-
-.content-body p {
-    margin-bottom: 1.5rem;
-}
-
-.content-body strong {
-    color: var(--accent-blue);
-    font-weight: 600;
-}
-
-/* --------------------------------------------------
-   ELEMENTOS DE MAQUETACIÓN (GRID, CARDS, ACCORDIONS)
-   -------------------------------------------------- */
-
-/* Columnas de Grid */
-.grid-two-columns {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.grid-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    transition: var(--transition-smooth);
-}
-
-.grid-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-blue);
-    box-shadow: var(--shadow-md);
-}
-
-.grid-card h3 {
-    font-family: var(--font-titles);
-    font-size: 1.25rem;
-    color: var(--accent-blue);
-    margin-bottom: 0.75rem;
-}
-
-/* Cajas de Alerta (Callouts) */
-.callout {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
-    margin: 2rem 0;
-    border-left: 4px solid transparent;
-}
-
-.callout-icon {
-    font-size: 1.5rem;
-    margin-top: 0.1rem;
-}
-
-.callout-content h4 {
-    font-family: var(--font-titles);
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.callout-content p {
-    margin-bottom: 0;
-    font-size: 0.95rem;
-}
-
-/* Variaciones de Callout */
-.callout-info {
-    background-color: var(--bg-info);
-    border-left-color: var(--color-info);
-    color: #e6edf3;
-}
-.callout-info .callout-icon, .callout-info h4 {
-    color: var(--color-info);
-}
-
-.callout-warning {
-    background-color: var(--bg-warning);
-    border-left-color: var(--color-warning);
-    color: #e6edf3;
-}
-.callout-warning .callout-icon, .callout-warning h4 {
-    color: var(--color-warning);
-}
-
-.callout-success {
-    background-color: var(--bg-success);
-    border-left-color: var(--color-success);
-    color: #e6edf3;
-}
-.callout-success .callout-icon, .callout-success h4 {
-    color: var(--color-success);
-}
-
-/* Acordeón (Tipos de Interacciones) */
-.accordion {
-    margin: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.accordion-item {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    transition: var(--transition-smooth);
-}
-
-.accordion-header {
-    padding: 1.25rem 1.5rem;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: var(--transition-smooth);
-}
-
-.accordion-header h3 {
-    font-family: var(--font-titles);
-    font-size: 1.2rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.accordion-header h3 i {
-    color: var(--accent-purple);
-}
-
-.accordion-header::after {
-    content: '\f078';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    transition: var(--transition-smooth);
-}
-
-.accordion-item.active .accordion-header::after {
-    transform: rotate(180deg);
-    color: var(--accent-purple);
-}
-
-.accordion-item.active {
-    border-color: var(--accent-purple);
-    box-shadow: 0 0 15px var(--accent-purple-glow);
-}
-
-.accordion-body {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    display: none;
-    border-top: 1px solid transparent;
-    transition: var(--transition-smooth);
-}
-
-.accordion-item.active .accordion-body {
-    display: block;
-    border-top-color: var(--border-color);
-}
-
-.accordion-body ul {
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.accordion-body li {
-    margin-bottom: 0.5rem;
-}
-
-/* Vitrina de Casos (Showcase Grid) */
-.showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.showcase-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: var(--transition-smooth);
-}
-
-.showcase-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--text-secondary);
-}
-
-.showcase-card.border-accent {
-    border-color: var(--accent-purple);
-    box-shadow: 0 0 8px rgba(188, 140, 255, 0.2);
-}
-
-.showcase-card.border-accent:hover {
-    border-color: var(--accent-purple);
-    box-shadow: 0 0 15px rgba(188, 140, 255, 0.4);
-}
-
-.showcase-header {
-    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
-}
-
-.catalog-number {
-    font-size: 0.75rem;
-    color: var(--accent-blue);
-    font-family: var(--font-titles);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.showcase-card.border-accent .catalog-number {
-    color: var(--accent-purple);
-}
-
-.showcase-header h3 {
-    font-family: var(--font-titles);
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-top: 0.25rem;
-}
-
-.showcase-body {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.showcase-body p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    flex: 1;
-}
-
-.case-meta {
-    font-size: 0.8rem;
-    color: var(--text-primary);
+.vector-menu li.selected a {
+    color: var(--wp-text-main);
     font-weight: 500;
+}
+
+/* Buscador de Wikipedia */
+#p-search {
+    margin-bottom: 4px;
+}
+
+#simpleSearch {
+    position: relative;
+    border: 1px solid var(--wp-border-color);
+    background-color: #ffffff;
+    height: 24px;
+    width: 250px;
+    border-radius: 2px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color: rgba(255, 255, 255, 0.04);
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--radius-sm);
-    width: fit-content;
 }
 
-/* Características en Lista (Consecuencias) */
-.features-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin: 2rem 0;
+#simpleSearch input {
+    border: none;
+    background: transparent;
+    padding: 2px 8px;
+    width: calc(100% - 24px);
+    font-family: var(--wp-font-sans);
+    font-size: 13px;
+    color: var(--wp-text-main);
 }
 
-.feature-item {
-    display: flex;
-    gap: 1.5rem;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.75rem;
-    transition: var(--transition-smooth);
+#simpleSearch input:focus {
+    outline: none;
 }
 
-.feature-item:hover {
-    border-color: var(--accent-blue);
-    box-shadow: var(--shadow-md);
-}
-
-.feature-icon {
-    font-size: 1.75rem;
-    color: var(--accent-blue);
-    background-color: var(--accent-blue-glow);
-    width: 60px;
-    height: 60px;
+#simpleSearch button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--wp-text-secondary);
+    width: 24px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 5px var(--accent-blue-glow));
+    font-size: 11px;
 }
 
-.feature-text h3 {
-    font-family: var(--font-titles);
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
+#simpleSearch button:hover {
+    color: var(--wp-link-color);
 }
 
-.feature-text p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-bottom: 0;
+/* --------------------------------------------------
+   BARRA LATERAL IZQUIERDA (#mw-panel)
+   -------------------------------------------------- */
+#mw-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 176px;
+    padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 0.5em;
+    background-color: var(--wp-bg-main);
 }
 
-/* Sección de Recursos Recomendados */
-.resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+/* Logo Oficial (Réplica Dinámica CSS) */
+#p-logo {
+    width: 100%;
+    margin-bottom: 2em;
 }
 
-.resource-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.75rem;
+.mw-wiki-logo {
+    display: block;
+    text-decoration: none;
+    color: var(--wp-text-main);
+    text-align: center;
+}
+
+.wiki-logo-placeholder {
     display: flex;
     flex-direction: column;
-    transition: var(--transition-smooth);
+    align-items: center;
+    border-bottom: 1px solid var(--wp-border-color);
+    padding-bottom: 1em;
 }
 
-.resource-card:hover {
-    border-color: var(--accent-blue);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
-
-.resource-type {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--accent-blue);
-    letter-spacing: 1px;
+.w-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 2px solid var(--wp-border-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    font-family: var(--wp-font-serif);
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: var(--wp-text-main);
 }
 
-.resource-card h3 {
-    font-family: var(--font-titles);
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+.wiki-subtitle {
+    font-family: var(--wp-font-serif);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+.wiki-subtext {
+    font-size: 9px;
+    color: var(--wp-text-secondary);
+    margin-top: 2px;
+}
+
+/* Portales y Listados del Menú Lateral */
+.portal {
+    margin-bottom: 1.5em;
+}
+
+.portal h3 {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--wp-text-secondary);
+    border-bottom: 1px solid var(--wp-border-color);
+    padding: 0.2em 0;
+    margin-bottom: 0.5em;
+}
+
+.portal ul {
+    list-style: none;
+    padding-left: 2px;
+}
+
+.portal li {
+    font-size: 0.85em;
+    margin-bottom: 0.4em;
+}
+
+.portal li a {
+    color: var(--wp-link-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.portal li a i {
+    width: 14px;
+    text-align: center;
+    color: var(--wp-text-secondary);
+    font-size: 10px;
+}
+
+.portal li a:hover {
+    text-decoration: underline;
+}
+
+.lang-link {
+    font-style: normal;
+}
+
+/* --------------------------------------------------
+   CONTENEDOR DEL CUERPO (#content)
+   -------------------------------------------------- */
+#content {
+    margin-left: 176px;
+    padding: 1.25em 1.5em 1.5em 1.5em;
+    background-color: var(--wp-bg-content);
+    border: 1px solid var(--wp-border-color);
+    border-right: none;
+    border-top: none;
+    min-height: 100vh;
+    box-shadow: -1px 0 0 var(--wp-border-color);
+}
+
+/* Título de la Página */
+.firstHeading {
+    font-family: var(--wp-font-serif);
+    font-size: 1.8em;
+    font-weight: normal;
+    border-bottom: 1px solid var(--wp-border-color);
+    padding-bottom: 0.2em;
+    margin-top: 2.2em; /* Compensa la posición del mw-head */
+    margin-bottom: 0.25em;
     line-height: 1.3;
 }
 
-.resource-author {
-    font-size: 0.85rem;
-    color: var(--accent-purple);
-    font-weight: 600;
+#siteSub {
+    font-size: 0.9em;
+    color: var(--wp-text-secondary);
+    font-style: italic;
+    margin-bottom: 1.5em;
+}
+
+/* Estilización del Cuerpo del Artículo enciclopédico */
+.vector-body {
+    position: relative;
+    max-width: 980px;
+    color: var(--wp-text-main);
+    font-size: 14px;
+}
+
+.vector-body p {
+    margin: 0.5em 0 1em 0;
+    text-align: justify;
+}
+
+.vector-body b {
+    font-weight: bold;
+}
+
+.vector-body i {
+    font-style: italic;
+}
+
+/* Encabezados del Artículo */
+.vector-body h2 {
+    font-family: var(--wp-font-serif);
+    font-size: 1.5em;
+    font-weight: normal;
+    border-bottom: 1px solid var(--wp-border-color);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.25em;
+}
+
+.vector-body h3 {
+    font-family: var(--wp-font-serif);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+}
+
+.vector-body ul, .vector-body ol {
+    margin: 0.5em 0 1em 2em;
+}
+
+.vector-body li {
+    margin-bottom: 0.3em;
+}
+
+/* --------------------------------------------------
+   FICHA DE INFORMACIÓN (INFOBOX)
+   -------------------------------------------------- */
+.infobox {
+    border: 1px solid var(--wp-border-color);
+    background-color: var(--wp-bg-infobox);
+    color: var(--wp-text-main);
+    margin: 0.5em 0 1em 1.5em;
+    padding: 0.4em;
+    float: right;
+    clear: right;
+    width: 290px;
+    font-size: 88%;
+    line-height: 1.5;
+    border-spacing: 2px;
+}
+
+.infobox-title {
+    font-size: 125%;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--wp-bg-header-box);
+    padding: 0.3em;
+    border-radius: 2px;
+    font-family: var(--wp-font-serif);
+}
+
+.infobox-image {
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+.infobox-image-placeholder {
+    height: 120px;
+    background: linear-gradient(135deg, #1d2127 0%, #0d0f12 100%);
+    border: 1px solid var(--wp-border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--wp-bg-infobox);
+    border-radius: 2px;
+}
+
+.infobox-image-placeholder i {
+    font-size: 2.2em;
+    color: #58a6ff;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 5px rgba(88,166,255,0.4));
+}
+
+.infobox-image-placeholder span {
+    font-size: 11px;
+    font-family: var(--wp-font-serif);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.infobox-image-caption {
+    font-size: 90%;
+    color: var(--wp-text-secondary);
+    padding-top: 4px;
+    line-height: 1.3;
+}
+
+.infobox-section-header {
+    background-color: var(--wp-bg-header-box);
+    font-weight: bold;
+    text-align: center;
+    padding: 0.25em;
+    font-size: 95%;
+}
+
+.infobox th[scope="row"] {
+    text-align: left;
+    width: 35%;
+    vertical-align: top;
+    padding: 0.3em;
+    font-weight: bold;
+}
+
+.infobox td {
+    padding: 0.3em;
+    vertical-align: top;
+}
+
+.infobox-list ul {
+    margin-left: 1.2em;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/* --------------------------------------------------
+   ÍNDICE DE CONTENIDOS (TOC)
+   -------------------------------------------------- */
+.toc {
+    background-color: var(--wp-bg-infobox);
+    border: 1px solid var(--wp-border-color);
+    padding: 10px;
+    font-size: 92%;
+    display: table;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    border-radius: 2px;
+}
+
+.toctitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--wp-border-color);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.toctitle h2 {
+    font-size: 100% !important;
+    font-family: var(--wp-font-sans) !important;
+    font-weight: bold !important;
+    border-bottom: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.toctoggle {
+    font-size: 85%;
+}
+
+.toc ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.toc ul ul {
+    padding-left: 20px;
+}
+
+.tocli {
+    margin-bottom: 4px;
+}
+
+.tocnumber {
+    color: var(--wp-text-main);
+    padding-right: 4px;
+}
+
+.toctext {
+    color: var(--wp-link-color);
+}
+
+/* --------------------------------------------------
+   MINIATURAS DE IMAGEN (THUMBNAILS)
+   -------------------------------------------------- */
+.thumb {
+    margin-bottom: 1.5em;
+    width: auto;
+    background-color: transparent;
+}
+
+.tright {
+    clear: right;
+    float: right;
+    margin-left: 1.5em;
+}
+
+.thumbinner {
+    border: 1px solid #c8ccd1;
+    padding: 3px;
+    background-color: var(--wp-bg-infobox);
+    font-size: 88%;
+    text-align: left;
+    border-radius: 2px;
+}
+
+.thumbimage {
+    border: 1px solid #c8ccd1;
+    background-color: #ffffff;
+    display: block;
+}
+
+.thumbcaption {
+    padding: 6px 3px 3px 3px;
+    color: var(--wp-text-secondary);
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.magnify {
+    float: right;
+    margin-left: 8px;
+    font-size: 10px;
+}
+
+.magnify a {
+    color: var(--wp-text-secondary);
+}
+
+.magnify a:hover {
+    color: var(--wp-link-color);
+}
+
+/* --------------------------------------------------
+   CAJAS DE ALERTA EDUCACIONALES Y REFERENCIAS
+   -------------------------------------------------- */
+.wiki-educational-resources {
+    border: 1px solid #c8ccd1;
+    background-color: var(--wp-bg-infobox);
+    padding: 1.25em;
+    margin: 2.2em 0;
+    border-left: 5px solid var(--wp-link-color);
+    border-radius: 2px;
+}
+
+.wiki-educational-resources h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 0.75em;
+    font-family: var(--wp-font-serif);
+}
+
+.wiki-educational-resources ul {
+    margin-bottom: 0;
+}
+
+.wiki-educational-resources li {
+    margin-bottom: 0.5em;
+}
+
+/* Superíndices de Citas en el Texto */
+sup a {
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 1px;
+    padding: 0 1px;
+}
+
+/* Lista de Referencias Finales */
+.reflist {
+    font-size: 90%;
+    margin-top: 1em;
+}
+
+.reflist ol {
+    margin-left: 2em;
+}
+
+.reflist li {
+    margin-bottom: 6px;
+    color: var(--wp-text-main);
+}
+
+.reference-text {
+    color: #202122;
+}
+
+/* --------------------------------------------------
+   CATEGORÍAS DE WIKIPEDIA (#catlinks)
+   -------------------------------------------------- */
+.catlinks {
+    border: 1px solid var(--wp-border-color);
+    background-color: var(--wp-bg-infobox);
+    padding: 8px;
+    margin-top: 3.5em;
+    clear: both;
+    font-size: 88%;
+    border-radius: 2px;
+}
+
+.mw-normal-catlinks {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mw-normal-catlinks ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.mw-normal-catlinks li {
+    margin: 0;
+    display: inline;
+}
+
+.mw-normal-catlinks li::after {
+    content: " |";
+    color: var(--wp-border-color);
+    padding-left: 5px;
+}
+
+.mw-normal-catlinks li:last-child::after {
+    content: "";
+}
+
+/* --------------------------------------------------
+   SIMULADOR DE PÁGINA DE DISCUSIÓN WIKI
+   -------------------------------------------------- */
+.talk-banner {
+    border: 1px solid #c8ccd1;
+    background-color: #fef6e4; /* Tono beige suave clásico de avisos */
+    border-left: 8px solid #f5b041;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.95em;
+    border-radius: 2px;
+}
+
+.talk-banner-icon {
+    font-size: 2em;
+    color: #f39c12;
+}
+
+.talk-thread {
+    margin-bottom: 2.5rem;
+}
+
+.talk-thread-title {
+    font-family: var(--wp-font-serif);
+    font-size: 1.35em !important;
+    font-weight: normal;
+    border-bottom: 1px solid var(--wp-border-color);
+    padding-bottom: 0.2em;
+    margin-top: 1.5em;
     margin-bottom: 1rem;
 }
 
-.resource-desc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    flex: 1;
+.talk-comment {
+    background-color: #ffffff;
+    border: 1px solid var(--wp-border-color);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.resource-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: transparent;
-    border: 1px solid var(--accent-blue);
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--radius-sm);
-    transition: var(--transition-smooth);
-    width: 100%;
+.talk-author {
+    font-weight: bold;
+    color: var(--wp-link-color);
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #eaecf0;
+    padding-bottom: 4px;
 }
 
-.resource-btn:hover {
-    background-color: var(--accent-blue);
-    color: var(--bg-main);
-    box-shadow: var(--glow-blue);
+.talk-author span {
+    font-weight: normal;
+    color: var(--wp-text-secondary);
 }
 
-/* --------------------------------------------------
-   PIE DE PÁGINA (FOOTER)
-   -------------------------------------------------- */
-.main-footer {
-    border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
-    margin-top: 5rem;
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
+.talk-comment p {
+    margin-bottom: 0;
+    text-align: justify;
 }
 
-.hosting-note {
-    margin-top: 0.5rem;
-    color: var(--text-muted);
-}
-
-.hosting-note i {
-    color: var(--text-secondary);
-}
-
-/* Botón de Menú Móvil e Interfaz */
-.mobile-toggle {
-    display: none;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background-color: var(--bg-sidebar);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition-smooth);
-}
-
-.mobile-toggle:hover {
-    border-color: var(--accent-blue);
-}
-
-.sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    z-index: 99;
+.talk-reply {
+    margin-left: 2.5rem;
+    border-left: 3px solid var(--wp-border-color);
+    background-color: var(--wp-bg-infobox);
 }
 
 /* --------------------------------------------------
-   ADAPTATIVIDAD (RESPONSIVE DESIGN)
+   PIE DE PÁGINA WIKIPEDIA (#footer)
    -------------------------------------------------- */
+#footer {
+    border-top: 1px solid var(--wp-border-color);
+    padding: 1.25em;
+    margin-top: 4em;
+    margin-left: 176px;
+    font-size: 0.85em;
+    color: var(--wp-text-secondary);
+    line-height: 1.8;
+    clear: both;
+}
 
-@media (max-width: 992px) {
-    /* Barra lateral móvil plegada */
-    .sidebar {
-        transform: translateX(-100%);
+#footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#footer-info li {
+    margin-bottom: 4px;
+}
+
+#footer-places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+#footer-places li {
+    display: inline;
+}
+
+#footer-icons {
+    float: right;
+    margin-top: -30px;
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 900px) {
+    #footer-icons {
+        float: none;
+        margin-top: 15px;
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------
+   ADAPTATIVIDAD (RESPONSIVE)
+   -------------------------------------------------- */
+@media (max-width: 850px) {
+    #mw-head {
+        position: relative;
+        left: 0;
+        height: auto;
+        padding-top: 4em;
+        background-color: var(--wp-bg-main);
+        border-bottom: 1px solid var(--wp-border-color);
     }
 
-    .sidebar.active {
-        transform: translateX(0);
-        box-shadow: var(--shadow-lg);
+    #personal-tools {
+        position: absolute;
+        top: 0.5em;
+        left: 1.5em;
+        right: auto;
     }
 
-    .sidebar-overlay.active {
-        display: block;
+    #left-navigation {
+        position: relative;
+        left: 1.5em;
+        bottom: 0;
+        margin-top: 10px;
     }
 
-    .mobile-toggle {
+    #right-navigation {
+        position: relative;
+        right: auto;
+        left: 1.5em;
+        bottom: 0;
+        margin-top: 10px;
         display: flex;
-    }
-
-    /* Redimensionar Contenido Principal */
-    .content-area {
-        margin-left: 0;
-        width: 100%;
-        padding: 4rem 1.5rem 2rem 1.5rem;
-    }
-
-    .main-header h1 {
-        font-size: 2.25rem;
-        margin-top: 1rem;
-    }
-
-    .subtitle {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .feature-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        height: auto;
+        gap: 10px;
+        padding-bottom: 10px;
     }
 
-    .feature-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+    #p-search {
+        margin-bottom: 0;
     }
 
-    .callout {
-        flex-direction: column;
-        gap: 0.75rem;
+    #mw-panel {
+        position: relative;
+        width: 100%;
+        padding-right: 1.5em;
+        border-bottom: 1px solid var(--wp-border-color);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    #p-logo {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .wiki-logo-placeholder {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .portal {
+        flex: 1;
+        min-width: 180px;
+    }
+
+    #content {
+        margin-left: 0;
+        border-left: none;
+    }
+
+    .firstHeading {
+        margin-top: 1em;
+    }
+
+    .infobox {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1.5em;
+    }
+
+    .thumb {
+        float: none;
+        margin-left: 0;
+    }
+
+    .thumbinner {
+        width: 100% !important;
+    }
+
+    .thumbimage {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    #footer {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #footer-places {
+        justify-content: center;
+    }
+
+    .talk-reply {
+        margin-left: 1rem;
     }
 }

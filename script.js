@@ -1,169 +1,196 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ==========================================
-    // 1. MANEJO DE MENÚ MÓVIL (HAMBURGUESA)
-    // ==========================================
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    const navLinks = document.querySelectorAll('.nav-link');
+    // ==================================================
+    // 1. ALTERNANCIA DE PESTAÑAS (ARTÍCULO VS DISCUSIÓN)
+    // ==================================================
+    const tabArticle = document.getElementById('tab-article');
+    const tabTalk = document.getElementById('tab-talk');
+    
+    const liArticle = document.getElementById('ca-nstab-main');
+    const liTalk = document.getElementById('ca-talk');
+    
+    const articleWrapper = document.getElementById('article-content-wrapper');
+    const talkWrapper = document.getElementById('talk-content-wrapper');
 
-    const toggleSidebar = () => {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
+    const showArticle = (e) => {
+        if (e) e.preventDefault();
         
-        // Cambiar icono de hamburguesa a cruz
-        const icon = mobileToggle.querySelector('i');
-        if (sidebar.classList.contains('active')) {
-            icon.className = 'fa-solid fa-xmark';
-        } else {
-            icon.className = 'fa-solid fa-bars';
-        }
+        articleWrapper.style.display = 'block';
+        talkWrapper.style.display = 'none';
+        
+        liArticle.classList.add('selected');
+        liTalk.classList.remove('selected');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    mobileToggle.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', toggleSidebar);
+    const showTalk = (e) => {
+        if (e) e.preventDefault();
+        
+        articleWrapper.style.display = 'none';
+        talkWrapper.style.display = 'block';
+        
+        liTalk.classList.add('selected');
+        liArticle.classList.remove('selected');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
-    // Cerrar sidebar al hacer clic en un enlace de navegación (móvil)
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (sidebar.classList.contains('active')) {
-                toggleSidebar();
+    tabArticle.addEventListener('click', showArticle);
+    tabTalk.addEventListener('click', showTalk);
+
+    // Si el enlace tiene un hash de discusión o queremos ir directo
+    const handleHashChange = () => {
+        if (window.location.hash.startsWith('#talk-')) {
+            showTalk();
+        }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+
+    // ==================================================
+    // 2. MOSTRAR / OCULTAR INDICE DE CONTENIDOS (TOC)
+    // ==================================================
+    const toggleTocLink = document.getElementById('toggle-toc');
+    const tocList = document.getElementById('toc-list');
+
+    if (toggleTocLink && tocList) {
+        toggleTocLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (tocList.style.display === 'none') {
+                tocList.style.display = 'block';
+                toggleTocLink.textContent = 'ocultar';
+            } else {
+                tocList.style.display = 'none';
+                toggleTocLink.textContent = 'mostrar';
             }
         });
-    });
-
-    // ==========================================
-    // 2. FUNCIONALIDAD DEL ACORDEÓN (INTERACCIONES)
-    // ==========================================
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-    // Por defecto, abrir el primer elemento del acordeón
-    const firstAccordionItem = document.querySelector('.accordion-item');
-    if (firstAccordionItem) {
-        firstAccordionItem.classList.add('active');
     }
 
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const currentItem = header.parentElement;
-            const isActive = currentItem.classList.contains('active');
-
-            // Cerrar todos los elementos
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Si no estaba activo, abrir el seleccionado
-            if (!isActive) {
-                currentItem.classList.add('active');
-            }
-        });
-    });
-
-    // ==========================================
-    // 3. BUSCADOR INTERACTIVO EN TIEMPO REAL
-    // ==========================================
-    const searchInput = document.getElementById('search-input');
-    const wikiSections = document.querySelectorAll('.wiki-section');
-    const searchIcon = document.querySelector('.search-box i');
-
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase().trim();
-        let matchCount = 0;
-
-        // Cambiar icono si hay texto para permitir limpiar la búsqueda
-        if (searchTerm.length > 0) {
-            searchIcon.className = 'fa-solid fa-circle-xmark';
-            searchIcon.style.cursor = 'pointer';
-        } else {
-            searchIcon.className = 'fa-solid fa-magnifying-glass';
-            searchIcon.style.cursor = 'default';
-        }
-
-        wikiSections.forEach(section => {
-            const sectionId = section.getAttribute('id');
-            const title = section.querySelector('h2').textContent.toLowerCase();
-            const content = section.querySelector('.content-body').textContent.toLowerCase();
-            const sidebarLink = document.getElementById(`link-${sectionId}`);
-
-            // Buscar en el título o en el contenido del artículo
-            if (title.includes(searchTerm) || content.includes(searchTerm)) {
-                section.style.display = 'block'; // Mostrar sección
-                if (sidebarLink) sidebarLink.parentElement.style.display = 'block'; // Mostrar en menú lateral
-                matchCount++;
-            } else {
-                section.style.display = 'none'; // Ocultar sección
-                if (sidebarLink) sidebarLink.parentElement.style.display = 'none'; // Ocultar en menú lateral
-            }
-        });
-
-        // Manejar mensaje de no resultados si fuera necesario
-        let noResultsMessage = document.getElementById('no-results-msg');
-        if (matchCount === 0) {
-            if (!noResultsMessage) {
-                noResultsMessage = document.createElement('div');
-                noResultsMessage.id = 'no-results-msg';
-                noResultsMessage.className = 'callout callout-warning';
-                noResultsMessage.style.maxWidth = '800px';
-                noResultsMessage.innerHTML = `
-                    <div class="callout-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <div class="callout-content">
-                        <h4>No se encontraron resultados</h4>
-                        <p>No pudimos encontrar secciones que coincidan con la búsqueda "<strong>${e.target.value}</strong>". Intenta con otros términos estelares como "Vía Láctea", "fusión", "gravedad" o "estrellas".</p>
-                    </div>
-                `;
-                document.getElementById('content-area').insertBefore(noResultsMessage, document.getElementById('recursos'));
-            } else {
-                noResultsMessage.querySelector('strong').textContent = e.target.value;
-                noResultsMessage.style.display = 'flex';
-            }
-        } else {
-            if (noResultsMessage) {
-                noResultsMessage.style.display = 'none';
-            }
-        }
-    });
-
-    // Limpiar buscador al hacer clic en la "X"
-    searchIcon.addEventListener('click', () => {
-        if (searchIcon.classList.contains('fa-solid fa-circle-xmark')) {
-            searchInput.value = '';
-            searchInput.dispatchEvent(new Event('input'));
-            searchInput.focus();
-        }
-    });
-
-    // ==========================================
-    // 4. RESALTADO AUTOMÁTICO DE SECCIÓN ACTIVA (SCROLL)
-    // ==========================================
-    const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px', // Activar cuando está en la zona central de lectura
-        threshold: 0
-    };
-
-    const observerCallback = (entries) => {
-        entries.forEach(entry => {
-            // Solo actua si las secciones están visibles (no filtradas por buscador)
-            if (entry.isIntersecting && entry.target.style.display !== 'none') {
-                const id = entry.target.getAttribute('id');
-                
-                // Desactivar todos los enlaces
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Activar enlace correspondiente
-                const activeLink = document.getElementById(`link-${id}`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    // ==================================================
+    // 3. BUSCADOR ESTILO AUTOCOMPLETADO DE WIKIPEDIA
+    // ==================================================
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchform');
     
-    // Registrar todas las secciones en el observador
-    wikiSections.forEach(section => {
-        observer.observe(section);
+    // Obtener los datos de las secciones del índice para las sugerencias
+    const sections = Array.from(document.querySelectorAll('#toc-list a')).map(anchor => {
+        const numSpan = anchor.querySelector('.tocnumber');
+        const textSpan = anchor.querySelector('.toctext');
+        return {
+            id: anchor.getAttribute('href').substring(1),
+            number: numSpan ? numSpan.textContent : '',
+            title: textSpan ? textSpan.textContent : anchor.textContent,
+            element: anchor
+        };
+    });
+
+    // Crear el contenedor de sugerencias
+    const suggestionsContainer = document.createElement('div');
+    suggestionsContainer.id = 'search-suggestions-box';
+    suggestionsContainer.style.position = 'absolute';
+    suggestionsContainer.style.top = '100%';
+    suggestionsContainer.style.left = '0';
+    suggestionsContainer.style.width = '100%';
+    suggestionsContainer.style.backgroundColor = '#ffffff';
+    suggestionsContainer.style.border = '1px solid #a2a9b1';
+    suggestionsContainer.style.boxShadow = '0 2px 4px rgba(0,0,0,0.15)';
+    suggestionsContainer.style.zIndex = '999';
+    suggestionsContainer.style.display = 'none';
+    suggestionsContainer.style.maxHeight = '280px';
+    suggestionsContainer.style.overflowY = 'auto';
+    suggestionsContainer.style.fontSize = '12px';
+    
+    document.getElementById('simpleSearch').appendChild(suggestionsContainer);
+
+    // Escuchar el tipeado
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase().trim();
+        suggestionsContainer.innerHTML = '';
+        
+        if (query.length === 0) {
+            suggestionsContainer.style.display = 'none';
+            return;
+        }
+
+        const filtered = sections.filter(sec => sec.title.toLowerCase().includes(query));
+
+        if (filtered.length === 0) {
+            const noRes = document.createElement('div');
+            noRes.style.padding = '8px 12px';
+            noRes.style.color = '#72777d';
+            noRes.style.fontStyle = 'italic';
+            noRes.textContent = 'Sin sugerencias coincidentes';
+            suggestionsContainer.appendChild(noRes);
+        } else {
+            filtered.forEach(sec => {
+                const sugg = document.createElement('div');
+                sugg.className = 'search-sugg-item';
+                sugg.style.padding = '8px 12px';
+                sugg.style.cursor = 'pointer';
+                sugg.style.borderBottom = '1px solid #f6f6f6';
+                sugg.innerHTML = `<span style="color:#72777d; font-family:monospace; margin-right:6px;">${sec.number}</span><strong>${sec.title}</strong>`;
+                
+                // Efecto hover
+                sugg.addEventListener('mouseover', () => {
+                    sugg.style.backgroundColor = '#eaecf0';
+                });
+                sugg.addEventListener('mouseout', () => {
+                    sugg.style.backgroundColor = '#ffffff';
+                });
+
+                // Clicar en la sugerencia
+                sugg.addEventListener('click', () => {
+                    showArticle(); // Asegurar que estamos en el artículo
+                    
+                    // Scroll suave
+                    const targetEl = document.getElementById(sec.id);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    
+                    searchInput.value = sec.title;
+                    suggestionsContainer.style.display = 'none';
+                });
+                suggestionsContainer.appendChild(sugg);
+            });
+        }
+        
+        suggestionsContainer.style.display = 'block';
+    });
+
+    // Cerrar sugerencias al hacer clic fuera del buscador
+    document.addEventListener('click', (e) => {
+        if (!document.getElementById('simpleSearch').contains(e.target)) {
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+
+    // Manejar envío del formulario
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = searchInput.value.toLowerCase().trim();
+        if (query.length === 0) return;
+
+        // Intentar coincidir de forma exacta
+        const match = sections.find(sec => sec.title.toLowerCase() === query);
+        if (match) {
+            showArticle();
+            const targetEl = document.getElementById(match.id);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Coincidir con la primera que contenga la palabra
+            const fuzzyMatch = sections.find(sec => sec.title.toLowerCase().includes(query));
+            if (fuzzyMatch) {
+                showArticle();
+                const targetEl = document.getElementById(fuzzyMatch.id);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                alert(`No se encontró ninguna sección con el nombre "${searchInput.value}"`);
+            }
+        }
+        suggestionsContainer.style.display = 'none';
     });
 });

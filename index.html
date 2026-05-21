@@ -3,329 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Una guía completa y accesible sobre las interacciones y fusiones de galaxias, diseñada para estudiantes y entusiastas de la astronomía.">
-    <title>Interacciones y Fusiones de Galaxias | CosmoWiki</title>
-    <!-- Google Fonts: Outfit (títulos) e Inter (cuerpo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome para iconos -->
+    <meta name="description" content="Artículo enciclopédico sobre las interacciones y fusiones de galaxias: dinámica de cúmulos, fenómenos físicos y consecuencias morfológicas.">
+    <title>Interacciones y fusiones de galaxias - Wikipedia, la enciclopedia libre</title>
+    <!-- Favicon estilo wiki -->
+    <link rel="shortcut icon" href="https://es.wikipedia.org/static/favicon/wikipedia.ico">
+    <!-- FontAwesome para iconos de la interfaz de Wikipedia -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Botón de menú móvil -->
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú de navegación">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+    <!-- Interfaz de Navegación Superior -->
+    <header id="mw-navigation">
+        <div id="mw-head">
+            <!-- Barra superior de usuario ficticio -->
+            <div id="personal-tools">
+                <span><i class="fa-regular fa-user"></i> No has iniciado sesión</span>
+                <a href="#" class="personal-link">Discusión</a>
+                <a href="#" class="personal-link">Contribuciones</a>
+                <a href="#" class="personal-link">Crear una cuenta</a>
+                <a href="#" class="personal-link">Acceder</a>
+            </div>
 
-        <!-- Barra lateral de navegación -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <i class="fa-solid fa-galaxy-icon fa-circle-nodes"></i>
-                    <span>CosmoWiki</span>
+            <!-- Controles de Pestañas del Artículo -->
+            <div id="left-navigation">
+                <nav id="p-namespaces" class="vector-menu">
+                    <ul>
+                        <li id="ca-nstab-main" class="selected"><a href="#" id="tab-article">Artículo</a></li>
+                        <li id="ca-talk"><a href="#" id="tab-talk">Discusión</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="right-navigation">
+                <nav id="p-views" class="vector-menu">
+                    <ul>
+                        <li id="ca-view" class="selected"><a href="#">Leer</a></li>
+                        <li id="ca-viewsource"><a href="#" onclick="alert('Esta es una réplica didáctica de Wikipedia para el diplomado. El código fuente está disponible en tu editor.'); return false;">Ver código</a></li>
+                        <li id="ca-history"><a href="#" onclick="alert('Versión actual del artículo: 21 de mayo de 2026. Versión inicial y única para el proyecto.'); return false;">Ver historial</a></li>
+                    </ul>
+                </nav>
+                <!-- Buscador de Wikipedia -->
+                <div id="p-search" role="search">
+                    <form id="searchform">
+                        <div id="simpleSearch">
+                            <input type="search" name="search" placeholder="Buscar en Wikipedia" id="searchInput" autocomplete="off" aria-label="Buscar en Wikipedia">
+                            <button type="submit" name="go" id="searchButton" aria-label="Ir"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
                 </div>
-                <p class="tagline">Exploración Galáctica</p>
             </div>
+        </div>
+    </header>
 
-            <!-- Buscador en tiempo real -->
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="search-input" placeholder="Buscar en la wiki..." aria-label="Buscar en la wiki">
-            </div>
+    <!-- Barra Lateral Izquierda (Sidebar de Wikipedia) -->
+    <aside id="mw-panel">
+        <div id="p-logo" role="banner">
+            <a class="mw-wiki-logo" href="#" title="Visitar la página principal">
+                <div class="wiki-logo-placeholder">
+                    <span class="w-logo">W</span>
+                    <span class="wiki-subtitle">WIKIPEDIA</span>
+                    <span class="wiki-subtext">La enciclopedia libre</span>
+                </div>
+            </a>
+        </div>
 
-            <nav class="nav-menu">
+        <nav class="portal" id="p-navigation" aria-labelledby="p-navigation-label">
+            <h3 id="p-navigation-label">Navegación</h3>
+            <div class="body">
                 <ul>
-                    <li><a href="#intro" class="nav-link active" id="link-intro"><i class="fa-solid fa-house"></i> Introducción</a></li>
-                    <li><a href="#estrellas" class="nav-link" id="link-estrellas"><i class="fa-solid fa-star"></i> ¿Chocan las Estrellas?</a></li>
-                    <li><a href="#tipos" class="nav-link" id="link-tipos"><i class="fa-solid fa-diagram-project"></i> Tipos de Interacción</a></li>
-                    <li><a href="#casos" class="nav-link" id="link-casos"><i class="fa-solid fa-images"></i> Casos Emblemáticos</a></li>
-                    <li><a href="#consecuencias" class="nav-link" id="link-consecuencias"><i class="fa-solid fa-bolt"></i> Consecuencias</a></li>
-                    <li><a href="#recursos" class="nav-link" id="link-recursos"><i class="fa-solid fa-book-open"></i> Recursos Recomendados</a></li>
+                    <li><a href="#"><i class="fa-solid fa-house-chimney"></i> Portada</a></li>
+                    <li><a href="#"><i class="fa-solid fa-users"></i> Portal de la comunidad</a></li>
+                    <li><a href="#"><i class="fa-solid fa-newspaper"></i> Actualidad</a></li>
+                    <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Cambios recientes</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-circle-plus"></i> Páginas nuevas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-shuffle"></i> Página aleatoria</a></li>
+                    <li><a href="#"><i class="fa-solid fa-circle-question"></i> Ayuda</a></li>
+                    <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Donaciones</a></li>
                 </ul>
-            </nav>
+            </div>
+        </nav>
 
-            <div class="sidebar-footer">
-                <p>Diplomado en Astronomía 2026</p>
-                <div class="social-icons">
-                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" aria-label="Compartir"><i class="fa-solid fa-share-nodes"></i></a>
+        <nav class="portal" id="p-tb" aria-labelledby="p-tb-label">
+            <h3 id="p-tb-label">Herramientas</h3>
+            <div class="body">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i> Lo que enlaza aquí</a></li>
+                    <li><a href="#"><i class="fa-solid fa-share-nodes"></i> Cambios relacionados</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-up-from-bracket"></i> Subir archivo</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-invoice"></i> Páginas especiales</a></li>
+                    <li><a href="#"><i class="fa-solid fa-link"></i> Enlace permanente</a></li>
+                    <li><a href="#"><i class="fa-solid fa-circle-info"></i> Información de la página</a></li>
+                    <li><a href="#"><i class="fa-solid fa-quote-left"></i> Citar esta página</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class="portal" id="p-lang" aria-labelledby="p-lang-label">
+            <h3 id="p-lang-label">En otros idiomas</h3>
+            <div class="body">
+                <ul>
+                    <li><a href="#" class="lang-link">English</a></li>
+                    <li><a href="#" class="lang-link">Deutsch</a></li>
+                    <li><a href="#" class="lang-link">Français</a></li>
+                    <li><a href="#" class="lang-link">Italiano</a></li>
+                    <li><a href="#" class="lang-link">Português</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Contenedor del Cuerpo Principal del Artículo -->
+    <main id="content" class="mw-body" role="main">
+        <!-- Contenido de la pestaña principal: ARTÍCULO -->
+        <div id="article-content-wrapper">
+            <h1 id="firstHeading" class="firstHeading">Interacciones y fusiones de galaxias</h1>
+            
+            <div id="bodyContent" class="vector-body">
+                <div id="siteSub">De Wikipedia, la enciclopedia libre</div>
+                <div id="contentSub"></div>
+
+                <!-- Párrafo introductorio principal -->
+                <p>Las <b>interacciones y fusiones de galaxias</b> (también conocidas en astrofísica bajo los términos en inglés <i>galaxy interactions and mergers</i>) constituyen procesos dinámicos y evolutivos fundamentales que ocurren a lo largo de miles de millones de años en el universo.<sup><a href="#cite_note-1">[1]</a></sup> Estos encuentros están regulados enteramente por la fuerza de gravedad y se desarrollan con especial frecuencia en regiones del espacio de alta densidad galáctica, tales como los grupos y cúmulos de galaxias.<sup><a href="#cite_note-2">[2]</a></sup></p>
+
+                <p>Lejos de provocar colisiones directas y destructivas entre estrellas individuales, las interacciones galácticas consisten principalmente en una compleja fricción y deformación gravitacional que altera la morfología de las galaxias implicadas, redistribuye sus masas gaseosas y estelares, y propicia espectaculares fenómenos físicos secundarios tales como intensos brotes de formación de nuevas estrellas (<i>starbursts</i>) o la activación de agujeros negros supermasivos en sus núcleos.<sup><a href="#cite_note-3">[3]</a></sup></p>
+
+                <!-- Ficha de Información (Infobox) de Wikipedia -->
+                <table class="infobox">
+                    <tbody>
+                        <tr>
+                            <th colspan="2" class="infobox-title">Interacciones y fusiones galácticas</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="infobox-image">
+                                <div class="infobox-image-placeholder">
+                                    <i class="fa-solid fa-circle-nodes"></i>
+                                    <span>Colisión Galáctica</span>
+                                </div>
+                                <div class="infobox-image-caption">Simulación esquemática del acoplamiento gravitatorio entre dos galaxias.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="infobox-section-header">Información general</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tipo de fenómeno</th>
+                            <td>Dinámico, gravitacional y astrofísico</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Escala espacial</th>
+                            <td>Kilopársecs (kpc) a Megapársecs (Mpc)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Escala temporal</th>
+                            <td>500 a 2000 millones de años (Ma)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Medios afectados</th>
+                            <td>Medio interestelar (<b>ISM</b>)<br>Medio intracumular (<b>ICM</b>)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ejemplos famosos</th>
+                            <td>Galaxias Antena (NGC 4038/4039)<br>Galaxia del Remolino (M51)<br>Galaxias de los Ratones (NGC 4676)<br>Lactómeda (Futura fusión local)</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="infobox-section-header">Consecuencias físicas</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="infobox-list">
+                                <ul>
+                                    <li>Brotes de formación estelar (<i>starbursts</i>)</li>
+                                    <li>Despojamiento de gas interestelar</li>
+                                    <li>Activación de Núcleos Activos de Galaxias (<b>AGN</b>)</li>
+                                    <li>Transición morfológica (espiral a elíptica)</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Índice de contenidos (Table of Contents) de Wikipedia -->
+                <div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading">
+                    <div class="toctitle" lang="es" dir="ltr">
+                        <h2 id="mw-toc-heading">Índice</h2>
+                        <span class="toctoggle">(<a href="#" id="toggle-toc">ocultar</a>)</span>
+                    </div>
+                    <ul id="toc-list">
+                        <li class="toclevel-1 tocsection-1"><a href="#intro"><span class="tocnumber">1</span> <span class="toctext">Introducción</span></a></li>
+                        <li class="toclevel-1 tocsection-2"><a href="#estrellas"><span class="tocnumber">2</span> <span class="toctext">¿Chocan físicamente las estrellas?</span></a></li>
+                        <li class="toclevel-1 tocsection-3">
+                            <a href="#mecanismos"><span class="tocnumber">3</span> <span class="toctext">Mecanismos clásicos de fusión</span></a>
+                            <ul>
+                                <li class="toclevel-2 tocsection-4"><a href="#canibalismo"><span class="tocnumber">3.1</span> <span class="toctext">Canibalismo galáctico (Fusión menor)</span></a></li>
+                                <li class="toclevel-2 tocsection-5"><a href="#humedas_secas"><span class="tocnumber">3.2</span> <span class="toctext">Fusiones húmedas y secas</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="toclevel-1 tocsection-6">
+                            <a href="#interacciones_cercanas"><span class="tocnumber">4</span> <span class="toctext">Interacciones cercanas en cúmulos galácticos</span></a>
+                            <ul>
+                                <li class="toclevel-2 tocsection-7"><a href="#acoso"><span class="tocnumber">4.1</span> <span class="toctext">Acoso galáctico (Harassment)</span></a></li>
+                                <li class="toclevel-2 tocsection-8"><a href="#truncamiento"><span class="tocnumber">4.2</span> <span class="toctext">Truncamiento por marea (Tidal truncation)</span></a></li>
+                                <li class="toclevel-2 tocsection-9"><a href="#presion_ariete"><span class="tocnumber">4.3</span> <span class="toctext">Despojamiento por presión de ariete (Ram-pressure stripping)</span></a></li>
+                                <li class="toclevel-2 tocsection-10"><a href="#evaporacion_termica"><span class="tocnumber">4.4</span> <span class="toctext">Evaporación térmica (Thermal evaporation)</span></a></li>
+                                <li class="toclevel-2 tocsection-11"><a href="#estrangulamiento"><span class="tocnumber">4.5</span> <span class="toctext">Estrangulamiento o hambre galáctica (Starvation)</span></a></li>
+                                <li class="toclevel-2 tocsection-12"><a href="#encuentro"><span class="tocnumber">4.6</span> <span class="toctext">Encuentro galaxia-galaxia (Galaxy-galaxy encounter)</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="toclevel-1 tocsection-13">
+                            <a href="#casos_famosos"><span class="tocnumber">5</span> <span class="toctext">Casos emblemáticos estudiados</span></a>
+                            <ul>
+                                <li class="toclevel-2 tocsection-14"><a href="#antenas"><span class="tocnumber">5.1</span> <span class="toctext">Las Galaxias Antena (NGC 4038/4039)</span></a></li>
+                                <li class="toclevel-2 tocsection-15"><a href="#remolino"><span class="tocnumber">5.2</span> <span class="toctext">La Galaxia del Remolino (M51)</span></a></li>
+                                <li class="toclevel-2 tocsection-16"><a href="#lactomeda"><span class="tocnumber">5.3</span> <span class="toctext">Lactómeda: la futura fusión local</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="toclevel-1 tocsection-17"><a href="#consecuencias"><span class="tocnumber">6</span> <span class="toctext">Consecuencias evolutivas</span></a></li>
+                        <li class="toclevel-1 tocsection-18"><a href="#recursos_estudio"><span class="tocnumber">7</span> <span class="toctext">Recursos de profundización recomendados</span></a></li>
+                        <li class="toclevel-1 tocsection-19"><a href="#referencias"><span class="tocnumber">8</span> <span class="toctext">Referencias y bibliografía</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Sección 1: Introducción -->
+                <h2 id="intro"><span class="mw-headline">Introducción</span></h2>
+                <p>Las galaxias no son objetos inmóviles en el espacio. Aunque el tejido mismo del espacio-tiempo se expande a escalas cosmológicas (la ley de Hubble), a escalas más locales de grupos y cúmulos de galaxias, los movimientos individuales de las galaxias están gobernados predominantemente por sus mutuas atracciones gravitacionales.<sup><a href="#cite_note-4">[4]</a></sup></p>
+                <p>El proceso a través del cual dos galaxias se aproximan e interactúan puede demorar cientos o miles de millones de años. La fricción dinámica y las fuerzas de marea actúan ralentizando la órbita de las galaxias. Este frenado dinámico disminuye gradualmente sus distancias relativas, obligándolas a orbitar en espiral una alrededor de la otra hasta que sus núcleos finalmente se unen en un solo cuerpo unificado. Este proceso es clave para la teoría jerárquica de la formación de estructuras, la cual postula que las grandes galaxias actuales se formaron mediante la acumulación de sistemas menores en épocas tempranas del universo.<sup><a href="#cite_note-1">[1]</a></sup></p>
+
+                <!-- Sección 2: ¿Chocan físicamente las estrellas? -->
+                <h2 id="estrellas"><span class="mw-headline">¿Chocan físicamente las estrellas?</span></h2>
+                <p>Una de las mayores paradojas del estudio de las fusiones de galaxias es que, pese a la inmensa cantidad de energía liberada y al choque visual de las estructuras, <b>las estrellas individuales nunca colisionan físicamente entre sí</b>. Esto se debe a la bajísima densidad de masa estelar en relación con el volumen total de una galaxia; es decir, las galaxias consisten predominantemente en espacio vacío.<sup><a href="#cite_note-5">[5]</a></sup></p>
+                
+                <p>Por ejemplo, el diámetro físico del Sol es de aproximadamente 1,39 millones de kilómetros, mientras que la distancia a la estrella más cercana, Próxima Centauri, es de 4,24 años luz (cerca de 40 billones de kilómetros). A esta escala representativa, si el Sol fuera del tamaño de una cereza de 1,5 cm en Madrid, Próxima Centauri sería otra cereza ubicada en Moscú. La probabilidad matemática de que dos estrellas de las galaxias colisionantes interactúen de forma mecánica directa es de apenas $10^{-19}$ (prácticamente cero). Lo que realmente colisiona son las fuerzas de gravedad invisibles, las cuales alteran la estabilidad orbital estelar y expulsan estrellas a nuevas trayectorias caóticas alrededor del nuevo centro galáctico común.<sup><a href="#cite_note-2">[2]</a></sup></p>
+
+                <!-- Sección 3: Mecanismos clásicos de fusión -->
+                <h2 id="mecanismos"><span class="mw-headline">Mecanismos clásicos de fusión</span></h2>
+                
+                <h3 id="canibalismo"><span class="mw-headline">Canibalismo galáctico (Fusión menor)</span></h3>
+                <p>El <b>canibalismo galáctico</b> describe el proceso por el cual una galaxia gigante y masiva consume a una galaxia satélite mucho más pequeña que orbita a su alrededor debido a la atracción de marea. La galaxia más pequeña es deshecha orbitalmente y sus estrellas pasan a formar parte del halo galáctico exterior de la gigante.<sup><a href="#cite_note-6">[6]</a></sup> Este proceso está ocurriendo actualmente en la Vía Láctea, la cual está absorbiendo activamente a la Galaxia Enana Esferoidal de Sagitario. Se cree que la mayor parte de las galaxias espirales masivas han crecido sustancialmente mediante este mecanismo.</p>
+
+                <h3 id="humedas_secas"><span class="mw-headline">Fusiones húmedas y secas</span></h3>
+                <p>Los astrofísicos clasifican las fusiones basándose en la cantidad de <b>gas interestelar frío</b> de los objetos en colisión:</p>
+                <ul>
+                    <li><b>Fusión húmeda:</b> Ocurre entre galaxias ricas en gas interestelar (como la fusión de dos espirales). El gas comprimido por las perturbaciones gravitatorias sufre un violento colapso gravitacional que enciende un brote de starburst, creando estrellas a un ritmo masivo.</li>
+                    <li><b>Fusión seca:</b> Se produce entre galaxias pobres en gas (tales como dos elípticas). No hay materia prima (gas frío) para formar nuevas estrellas, por lo que el evento se limita a la redistribución tridimensional de las poblaciones estelares previas.</li>
+                </ul>
+
+                <!-- Sección 4: Interacciones cercanas en cúmulos galácticos (Diagrama de Pizarra) -->
+                <h2 id="interacciones_cercanas"><span class="mw-headline">Interacciones cercanas en cúmulos galácticos</span></h2>
+                <p>Cuando las galaxias habitan dentro de cúmulos de galaxias sumamente densos y calientes, experimentan una serie de fenómenos específicos condicionados por las fuerzas gravitatorias mutuas y su paso a través del <b>medio intracumular (ICM)</b> (el plasma denso y extremadamente caliente de rayos X que llena el espacio entre las galaxias de un cúmulo).<sup><a href="#cite_note-7">[7]</a></sup></p>
+                <p>Estos procesos modifican drásticamente el <b>medio interestelar (ISM)</b> (gas frío y polvo dentro de la galaxia) y su estructura estelar.</p>
+
+                <!-- Miniatura (Thumbnail) de la Pizarra de Wikipedia -->
+                <div class="thumb tright">
+                    <div class="thumbinner" style="width: 402px;">
+                        <a href="interacciones_cercanas.png" target="_blank">
+                            <img src="interacciones_cercanas.png" alt="Pizarra interactiva de interacciones cercanas" class="thumbimage" style="width: 400px;">
+                        </a>
+                        <div class="thumbcaption">
+                            <div class="magnify"><a href="interacciones_cercanas.png" target="_blank" title="Ampliar"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></a></div>
+                            <b>Ilustración esquemática de los seis fenómenos físicos principales en interacciones cercanas dentro de cúmulos galácticos</b>, mostrando la interacción entre las estrellas (amarillo), el medio interestelar (ISM, azul) y el medio intracumular (ICM, morado). Ilustrado por Aeree Chung.
+                        </div>
+                    </div>
+                </div>
+
+                <p>De acuerdo con las observaciones astronómicas y simulaciones de dinámica de cúmulos, se distinguen seis fenómenos físicos diferenciados de interacción cercana:<sup><a href="#cite_note-8">[8]</a></sup></p>
+
+                <h3 id="acoso"><span class="mw-headline">Acoso galáctico (<i>Harassment</i>)</span></h3>
+                <p>El <b>acoso galáctico</b> consiste en una sucesión repetitiva de encuentros orbitales de alta velocidad y corta distancia entre galaxias dentro de un cúmulo masivo y denso. A diferencia de una fusión limpia, los encuentros rápidos no dan tiempo a que las galaxias se unan, pero las fuerzas de marea resultantes de cada pasada eliminan gradualmente el gas interestelar suelto y las estrellas exteriores del halo de la galaxia víctima, provocando un desorden morfológico severo (generalmente convirtiendo galaxias espirales delgadas en galaxias enanas esferoidales o elípticas).<sup><a href="#cite_note-9">[9]</a></sup></p>
+
+                <h3 id="truncamiento"><span class="mw-headline">Truncamiento por marea (<i>Tidal truncation</i>)</span></h3>
+                <p>El <b>truncamiento por marea</b> se origina por el acoplamiento gravitatorio directo que sufre una galaxia al pasar cerca de los pozos gravitatorios masivos de otras galaxias o del centro mismo del cúmulo. Las intensas fuerzas de marea "arrancan" gravitacionalmente la materia estelar y del ISM situada en la periferia de la galaxia, limitando físicamente el tamaño máximo del disco y comprimiendo a la galaxia a un radio visible mucho más estrecho y delimitado.</p>
+
+                <h3 id="presion_ariete"><span class="mw-headline">Despojamiento por presión de ariete (<i>Ram-pressure stripping</i>)</span></h3>
+                <p>El <b>despojamiento por presión de ariete</b> (o presión dinámica) es un proceso puramente hidrodinámico. Cuando una galaxia espiral se desplaza a velocidades supersónicas (miles de kilómetros por segundo) a través del plasma denso y caliente del ICM, el gas de la galaxia (ISM) experimenta un potente "viento cósmico" en contra.<sup><a href="#cite_note-10">[10]</a></sup> Si la presión dinámica del medio intracumular vence la fuerza de gravedad con la que la galaxia retiene su propio gas, el ISM frío es literalmente "barrido" y arrastrado hacia afuera de la galaxia, creando largas colas gaseosas de aspecto similar al de un cometa y dejando a la galaxia completamente desprovista de gas frío, deteniendo abruptamente su formación de nuevas estrellas (proceso conocido como apagado o <i>quenching</i>).</p>
+
+                <h3 id="evaporacion_termica"><span class="mw-headline">Evaporación térmica (<i>Thermal evaporation</i>)</span></h3>
+                <p>La <b>evaporación térmica</b> ocurre cuando el gas interestelar frío (ISM) de una galaxia entra en contacto directo con el plasma a altísimas temperaturas del medio intracumular (ICM). Debido a la conducción térmica a gran escala entre ambos medios, la energía térmica fluye desde el ICM caliente hacia el ISM frío, calentando este último hasta temperaturas donde el gas ya no puede mantenerse gravitacionalmente ligado a la galaxia, evaporándose hacia el espacio intergaláctico del cúmulo.<sup><a href="#cite_note-7">[7]</a></sup></p>
+
+                <h3 id="estrangulamiento"><span class="mw-headline">Estrangulamiento o hambre galáctica (<i>Starvation</i>)</span></h3>
+                <p>El <b>estrangulamiento</b> (también llamado técnicamente estrangulación o "hambre galáctica") es el proceso de corte de suministro externo de materia prima. Típicamente, una galaxia espiral mantiene su formación estelar continua gracias a la acreción lenta y constante de filamentos exteriores de gas frío. Sin embargo, al ingresar dentro del entorno hostil de un cúmulo denso, el halo gaseoso externo de la galaxia es despojado por completo. Al perder esta fuente externa de suministro, la galaxia entra en una fase de "hambre", viéndose obligada a consumir lentamente solo las reservas de gas frío que le quedan en su disco interior hasta agotarlas por completo y quedar inactiva estelarmente.</p>
+
+                <h3 id="encuentro"><span class="mw-headline">Encuentro galaxia-galaxia (<i>Galaxy-galaxy encounter</i>)</span></h3>
+                <p>Se refiere al <b>encuentro dinámico individual</b> clásico y directo entre dos galaxias individuales aisladas o dentro de un grupo a velocidades de aproximación bajas. Al pasar muy cerca una de la otra, la interacción por marea es sumamente prolongada y severa. Los discos de ambas galaxias se deforman físicamente, creando puentes de estrellas conectores y expulsando inmensas cantidades de gas interestelar e ISM en forma de colas de marea antes de definir si se separarán en órbitas elípticas o colapsarán en una fusión directa.<sup><a href="#cite_note-2">[2]</a></sup></p>
+
+                <!-- Sección 5: Casos Famosos -->
+                <h2 id="casos_famosos"><span class="mw-headline">Casos emblemáticos estudiados</span></h2>
+                
+                <h3 id="antenas"><span class="mw-headline">Las Galaxias Antena (NGC 4038/4039)</span></h3>
+                <p>Las <b>Galaxias Antena</b> representan el ejemplo más estudiado de una colisión mayor activa entre dos galaxias espirales de masas similares. Situadas a unos 45 millones de años luz, comenzaron su danza gravitacional hace unos 300 millones de años. La colisión ha arrancado dos gigantescas corrientes arqueadas de estrellas y gas que se asemejan a las antenas de un insecto (colas de marea). En sus núcleos en aproximación se observan colosales nubes calientes que albergan miles de cúmulos estelares supermasivos recién nacidos fruto de la fusión húmeda activa.<sup><a href="#cite_note-3">[3]</a></sup></p>
+
+                <h3 id="remolino"><span class="mw-headline">La Galaxia del Remolino (M51)</span></h3>
+                <p>La <b>Galaxia del Remolino</b> es un ejemplo paradigmático de interacción menor clásica. Compuesta por la gran galaxia espiral M51a y su pequeña satélite NGC 5195. La interacción por marea de la satélite al pasar por detrás de la espiral principal ha esculpido brazos espirales extremadamente marcados y nítidos debido a ondas de densidad gravitatoria inducidas, desencadenando la compresión gaseosa del ISM y la formación estelar activa que bordea todos los brazos de la galaxia.</p>
+
+                <h3 id="lactomeda"><span class="mw-headline">Lactómeda: la futura fusión local</span></h3>
+                <p>La Vía Láctea y la galaxia de Andrómeda (M31), las dos galaxias más masivas del Grupo Local, se aproximan mutuamente a una velocidad de 110 kilómetros por segundo. Los cálculos astrofísicos estiman que ambas galaxias iniciarán su colisión directa en aproximadamente <b>4000 millones de años</b>. El proceso se extenderá por otros 2000 millones de años, deforma completamente el disco plano de ambas espirales y culminará con la creación de una galaxia elíptica gigante unificada bautizada informalmente como <i>Lactómeda</i> o <i>Milkomeda</i>. Durante esta colisión, el Sistema Solar será arrojado probablemente a una órbita periférica lejana del nuevo núcleo elíptico, pero el Sol y la Tierra no sufrirán impactos mecánicos estelares directos.</p>
+
+                <!-- Sección 6: Consecuencias Evolutivas -->
+                <h2 id="consecuencias"><span class="mw-headline">Consecuencias evolutivas</span></h2>
+                <p>Las interacciones dinámicas de galaxias representan el motor principal del cambio morfológico y de población estelar del universo:</p>
+                <ol>
+                    <li><b>Transición morfológica:</b> La destrucción del disco rotacional ordenado convierte galaxias espirales organizadas en sistemas elípticos tridimensionales caóticos con órbitas estelares aleatorias.</li>
+                    <li><b>Apagado de formación estelar:</b> La pérdida masiva de gas (por fenómenos como el ram-pressure stripping o el starvation) despoja de materia prima a la galaxia, acelerando el envejecimiento galáctico y convirtiendo galaxias espirales sanas en galaxias "rojas y muertas".</li>
+                    <li><b>Alimentación de agujeros negros (AGN):</b> El arrastre gravitacional hacia el núcleo durante la colisión proporciona billones de toneladas de gas frío al agujero negro supermasivo central, encendiendo cuásares sumamente luminosos capaces de expulsar chorros relativistas que regulan a su vez el enfriamiento del cúmulo.<sup><a href="#cite_note-3">[3]</a></sup></li>
+                </ol>
+
+                <!-- Sección 7: Recursos Recomendados -->
+                <h2 id="recursos_estudio"><span class="mw-headline">Recursos de profundización recomendados</span></h2>
+                <p>Para aquellos alumnos del diplomado que deseen incorporar lecturas y videos complementarios para sus trabajos o investigaciones de curso:</p>
+                
+                <div class="wiki-educational-resources">
+                    <h4>Material Audiovisual Destacado</h4>
+                    <ul>
+                        <li>🎥 <b>«¿Qué pasará cuando la Vía Láctea y Andrómeda colisionen?» – Astrobitácora (YouTube)</b>: Narración inmersiva y de alto nivel sobre la colisión de nuestro Grupo Local.</li>
+                        <li>🎥 <b>«Colisiones de Galaxias: La Danza Gravitacional del Universo» – Doctor K (YouTube)</b>: Animaciones muy comprensibles que explican la mecánica de fluidos e interacciones a escalas didácticas.</li>
+                        <li>🎥 <b>«Hubble's Interacting Galaxies» – NASA's Goddard</b>: Colección científica de simulaciones reales y tomas ópticas en alta resolución de galaxias en interacción activa.</li>
+                    </ul>
+
+                    <h4>Material Escrito y Artículos Académicos</h4>
+                    <ul>
+                        <li>📖 <b>«Luchas de titanes: interacciones y fusiones de galaxias» – Dra. Almudena Alonso Herrero (Real Observatorio de Madrid)</b>: Un excelente desglose de divulgación avanzada enfocado en la fricción estelar y núcleos AGN alimentados.</li>
+                        <li>📖 <b>«Galaxias: génesis y evolución» – Revista Science in School</b>: Una guía de lectura didáctica óptima para comprender la evolución cosmológica y el canibalismo.</li>
+                    </ul>
+                </div>
+
+                <!-- Sección 8: Referencias y bibliografía -->
+                <h2 id="referencias"><span class="mw-headline">Referencias y bibliografía</span></h2>
+                <div class="reflist">
+                    <ol>
+                        <li id="cite_note-1">^ <span class="reference-text">Binney, J. y Tremaine, S. (2008). <i>Galactic Dynamics</i> (2.ª edición). Princeton University Press. ISBN 978-0-691-13027-9.</span></li>
+                        <li id="cite_note-2">^ <span class="reference-text">Carroll, B. W. y Ostlie, D. A. (2017). <i>An Introduction to Modern Astrophysics</i>. Cambridge University Press. ISBN 978-1-108-42216-1.</span></li>
+                        <li id="cite_note-3">^ <span class="reference-text">Sanders, D. B. y Mirabel, I. F. (1996). «Luminous Infrared Galaxies». <i>Annual Review of Astronomy and Astrophysics</i> <b>34</b>: 749-792.</span></li>
+                        <li id="cite_note-4">^ <span class="reference-text">Hubble, E. (1936). <i>The Realm of the Nebulae</i>. Yale University Press. ISBN 978-0-300-02500-2.</span></li>
+                        <li id="cite_note-5">^ <span class="reference-text">Spitzer, L. (1987). <i>Dynamical Evolution of Globular Clusters</i>. Princeton University Press. ISBN 978-0-691-08460-2.</span></li>
+                        <li id="cite_note-6">^ <span class="reference-text">Ostriker, J. P. y Tremaine, S. D. (1975). «Another evolutionary effect of galaxian cannibalism on cluster mergers». <i>Astrophysical Journal</i> <b>202</b>: L113-L117.</span></li>
+                        <li id="cite_note-7">^ <span class="reference-text">Sarazin, C. L. (1986). «X-ray emission from clusters of galaxies». <i>Reviews of Modern Physics</i> <b>58</b>: 1-215.</span></li>
+                        <li id="cite_note-8">^ <span class="reference-text">Boselli, A. y Gavazzi, G. (2006). «Environmental Effects on Late-Type Galaxies in Nearby Clusters». <i>Publications of the Astronomical Society of the Pacific</i> <b>118</b>: 517-559.</span></li>
+                        <li id="cite_note-9">^ <span class="reference-text">Moore, B., Katz, N., Lake, G., Dressler, A. y Oemler, A. (1996). «Galaxy harassment and the evolution of clusters of galaxies». <i>Nature</i> <b>379</b>: 613-616.</span></li>
+                        <li id="cite_note-10">^ <span class="reference-text">Gunn, J. E. y Gott, J. R. (1972). «On the Infall of Matter Into Clusters of Galaxies and Some Effects on Their Evolution». <i>Astrophysical Journal</i> <b>176</b>: 1-19.</span></li>
+                    </ol>
                 </div>
             </div>
-        </aside>
 
-        <!-- Fondo de overlay móvil -->
-        <div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-        <!-- Contenido principal -->
-        <main class="content-area" id="content-area">
-            <header class="main-header">
-                <h1>Interacciones & Fusiones de Galaxias</h1>
-                <p class="subtitle">La majestuosa y lenta danza gravitacional que redefine el destino cósmico.</p>
-            </header>
-
-            <!-- Introducción -->
-            <article id="intro" class="wiki-section scroll-mt">
-                <div class="section-badge"><i class="fa-solid fa-compass"></i> Guía General</div>
-                <h2>Introducción a las Colisiones Galácticas</h2>
-                <div class="content-body">
-                    <p>En el vasto escenario del universo, las galaxias no son islas estáticas flotando en aislamiento absoluto. Al contrario, están unidas por los hilos invisibles de la <strong>fuerza de gravedad</strong>. A lo largo de miles de millones de años, esta fuerza tira de ellas, forzándolas a aproximarse, interactuar y, en muchos casos, a fusionarse en estructuras completamente nuevas.</p>
-                    
-                    <p>Estos encuentros, conocidos en astrofísica como <strong>interacciones y fusiones de galaxias</strong> (<em>galaxy mergers</em>), son los eventos más energéticos y transformadores del cosmos. No ocurren como una explosión instantánea; son una sutil danza gravitatoria que se desenvuelve en cámara lenta, tardando entre 500 y más de 2000 millones de años en completarse.</p>
-
-                    <!-- Tarjeta destacada -->
-                    <div class="callout callout-info">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-lightbulb"></i>
-                        </div>
-                        <div class="callout-content">
-                            <h4>Perspectiva del Tiempo Cósmico</h4>
-                            <p>Cuando observamos imágenes del Telescopio Espacial Hubble o del James Webb que muestran galaxias colisionando, no estamos viendo un estallido dinámico instantáneo. Estamos contemplando una <strong>fotografía congelada en el tiempo</strong>. Para notar cambios significativos a simple vista en una colisión galáctica real, tendríamos que observar la misma galaxia durante cientos de miles de años.</p>
-                        </div>
-                    </div>
-
-                    <p>El estudio de estas colisiones es fundamental para comprender la <strong>evolución del universo</strong>. Al analizar los restos de fusiones pasadas y simular los encuentros futuros, los astrónomos pueden descifrar cómo las galaxias crecen, cambian su morfología y siembran las semillas para la formación de nuevas generaciones de estrellas.</p>
+            <!-- Caja de Categorías de Wikipedia -->
+            <div id="catlinks" class="catlinks" data-mw="interface">
+                <div id="mw-normal-catlinks" class="mw-normal-catlinks">
+                    <a href="#" title="Especial:Categorías">Categorías</a>: 
+                    <ul>
+                        <li><a href="#">Astrofísica</a></li>
+                        <li><a href="#">Dinámica galáctica</a></li>
+                        <li><a href="#">Evolución de galaxias</a></li>
+                        <li><a href="#">Cúmulos de galaxias</a></li>
+                    </ul>
                 </div>
-            </article>
+            </div>
+        </div>
 
-            <!-- ¿Chocan las estrellas? -->
-            <article id="estrellas" class="wiki-section scroll-mt">
-                <div class="section-badge"><i class="fa-solid fa-circle-question"></i> Paradoja Cósmica</div>
-                <h2>La Paradoja de las Estrellas: ¿Colisionan Físicamente?</h2>
-                <div class="content-body">
-                    <p>Cuando escuchamos palabras como "choque", "colisión" o "fusión" a escalas galácticas, es natural imaginar catástrofes de proporciones apocalípticas: estrellas chocando entre sí de frente, destruyendo sus sistemas planetarios y fragmentándose en pedazos. Sin embargo, la realidad física es completamente diferente y fascinante.</p>
-                    
-                    <p>Durante la colisión de dos galaxias, <strong>la probabilidad de que dos estrellas individuales choquen físicamente es prácticamente cero</strong>. ¿Cómo es esto posible?</p>
+        <!-- Contenido de la pestaña secundaria: DISCUSIÓN (Simulación didáctica) -->
+        <div id="talk-content-wrapper" style="display: none;">
+            <h1 id="talkHeading" class="firstHeading">Discusión:Interacciones y fusiones de galaxias</h1>
+            
+            <div id="talkBodyContent" class="vector-body">
+                <div id="siteSub">De Wikipedia, la enciclopedia libre</div>
+                <div id="talkContentSub">Página de discusión y debate académico para el Diplomado en Astronomía.</div>
 
-                    <div class="grid-two-columns">
-                        <div class="grid-card">
-                            <h3>El Vacío Estelar</h3>
-                            <p>Las galaxias son inmensas, pero están compuestas principalmente de <strong>espacio vacío</strong>. Si comparamos el tamaño de una estrella promedio con la distancia que la separa de su vecina más cercana, descubrimos un abismo descomunal.</p>
-                        </div>
-                        <div class="grid-card">
-                            <h3>La Analogía de las Canicas</h3>
-                            <p>Si redujéramos el Sol al tamaño de una canica de 1 centímetro de diámetro, la estrella más cercana (Próxima Centauri) estaría situada a unos <strong>300 kilómetros de distancia</strong>. Si lanzas dos puñados de canicas espaciadas a 300 km de distancia entre sí, es sumamente improbable que alguna llegue a rozarse.</p>
-                        </div>
-                    </div>
-
-                    <p>Por lo tanto, la "colisión" galáctica no es mecánica, sino <strong>gravitacional</strong>. Lo que realmente choca y se mezcla son los campos gravitatorios de ambas galaxias, los cuales alteran profundamente las órbitas de las estrellas. Las estrellas son arrojadas en trayectorias elípticas caóticas y reordenadas en una nueva galaxia gigante, pero siempre separadas por años luz de distancia.</p>
-
-                    <div class="callout callout-warning">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-                        <div class="callout-content">
-                            <h4>¿Qué ocurre con los planetas?</h4>
-                            <p>Aunque las estrellas no choquen, las potentes fuerzas gravitatorias de la fusión pueden perturbar los límites exteriores de sistemas solares individuales. No obstante, para la inmensa mayoría de los sistemas planetarios, los cambios son tan graduales que la estabilidad del planeta alrededor de su estrella no corre peligro inmediato.</p>
-                        </div>
+                <div class="talk-banner">
+                    <div class="talk-banner-icon"><i class="fa-solid fa-comments"></i></div>
+                    <div class="talk-banner-text">
+                        <strong>Foro de Debate e Hilo Académico:</strong> Esta página simula la sección de discusión de Wikipedia. Aquí los alumnos de diversas carreras y el profesorado del diplomado debaten dudas terminológicas y conceptuales sobre el artículo. ¡Eres libre de leer sus contribuciones!
                     </div>
                 </div>
-            </article>
 
-            <!-- Tipos de Interacciones -->
-            <article id="tipos" class="wiki-section scroll-mt">
-                <div class="section-badge"><i class="fa-solid fa-gears"></i> Mecanismos</div>
-                <h2>Tipos de Interacciones Gravitacionales</h2>
-                <div class="content-body">
-                    <p>Las interacciones galácticas adoptan diferentes formas dependiendo de la masa de las galaxias participantes, su contenido de gas estelar y sus trayectorias orbitales. A continuación se detallan los tres tipos principales:</p>
-                    
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h3><i class="fa-solid fa-skull"></i> 1. Canibalismo Galáctico (Fusión Menor)</h3>
-                            </div>
-                            <div class="accordion-body">
-                                <p>Ocurre cuando una galaxia masiva y dominante atrae gravitatoriamente a una galaxia mucho más pequeña (galaxia satélite o enana). A medida que la galaxia enana orbita a la gigante, es despedazada por las fuerzas de marea y sus estrellas son absorbidas e integradas en el halo de la galaxia mayor.</p>
-                                <p><em>Nuestra Vía Láctea es una consumada "caníbal". Actualmente está absorbiendo lentamente a la Galaxia Enana Esferoidal de Sagitario y a las Nubes de Magallanes.</em></p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h3><i class="fa-solid fa-droplet"></i> 2. Fusiones Húmedas y Secas (Materia Prima)</h3>
-                            </div>
-                            <div class="accordion-body">
-                                <p>La clasificación de una fusión depende enormemente de la cantidad de gas frío acumulado:</p>
-                                <ul>
-                                    <li><strong>Fusión Húmeda (Rica en gas):</strong> Ocurre entre galaxias espirales que poseen inmensas reservas de gas y polvo interestelar. Al colisionar, el gas se comprime velozmente provocando la creación abrupta de miles de millones de nuevas estrellas (brote estelar).</li>
-                                    <li><strong>Fusión Seca (Pobre en gas):</strong> Ocurre entre galaxias elípticas que ya han agotado su gas interestelar. El encuentro no genera nuevas estrellas; simplemente redistribuye las estrellas ya existentes en una estructura más masiva.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h3><i class="fa-solid fa-water"></i> 3. Fuerzas y Colas de Marea</h3>
-                            </div>
-                            <div class="accordion-body">
-                                <p>Cuando dos galaxias pasan muy cerca una de la otra sin colisionar directamente, las intensas fuerzas gravitatorias estiran sus estructuras. Esto arranca enormes corrientes de gas y millones de estrellas hacia el espacio intergaláctico, creando estructuras alargadas llamadas <strong>colas de marea</strong> o puentes de materia que conectan ambos cuerpos.</p>
-                            </div>
-                        </div>
+                <!-- Hilo de discusión 1 -->
+                <div class="talk-thread">
+                    <h2 class="talk-thread-title">1. ¿Deberíamos traducir "Ram-pressure stripping" como "Despojo por presión de ariete"?</h2>
+                    <div class="talk-comment">
+                        <div class="talk-author">Clara_Gomez_Fisica (Estudiante de Ciencias) <span>escribió:</span></div>
+                        <p>Hola a todos. Estaba leyendo la sección 4.3 y me surge una duda. En varias lecturas en español he visto el término traducido simplemente como "presión dinámica" o "despojo por presión dinámica". Sin embargo, "presión de ariete" suena muy descriptivo e histórico. ¿Qué terminología es preferible para nuestro ensayo final del diplomado?</p>
+                    </div>
+                    <div class="talk-comment talk-reply">
+                        <div class="talk-author">Dr_Carlos_Mendoza (Profesor de Astrofísica) <span>escribió:</span></div>
+                        <p>Excelente pregunta, Clara. En la literatura astrofísica formal en español, ambos términos son válidos. "Presión dinámica" es más riguroso en cuanto a mecánica de fluidos, pero "presión de ariete" (que viene del inglés <i>ram-pressure</i>) se usa mucho para ilustrar de forma intuitiva cómo el medio intracumular golpea a la galaxia como un ariete golpeando las puertas de un castillo. Para tu ensayo, te sugiero mencionar ambos al inicio y luego usar el que te resulte más cómodo. ¡Saludos!</p>
                     </div>
                 </div>
-            </article>
 
-            <!-- Casos Famosos -->
-            <article id="casos" class="wiki-section scroll-mt">
-                <div class="section-badge"><i class="fa-solid fa-star-and-crescent"></i> Catálogo Cósmico</div>
-                <h2>Casos Emblemáticos en el Universo</h2>
-                <div class="content-body">
-                    <p>Gracias a los telescopios modernos, los astrónomos han podido registrar colisiones reales en diferentes etapas de su evolución. Aquí se presentan cuatro de los ejemplos más famosos estudiados:</p>
-
-                    <div class="showcase-grid">
-                        <!-- Caso 1 -->
-                        <div class="showcase-card">
-                            <div class="showcase-header">
-                                <span class="catalog-number">NGC 4038 & NGC 4039</span>
-                                <h3>Las Galaxias Antena</h3>
-                            </div>
-                            <div class="showcase-body">
-                                <p>Es el prototipo clásico de una colisión mayor en curso. Dos galaxias espirales iniciaron su choque hace unos 300 millones de años. Su nombre proviene de las dos larguísimas corrientes estelares (colas de marea) que se proyectan hacia el exterior, asemejándose a las antenas de un insecto.</p>
-                                <div class="case-meta"><i class="fa-solid fa-location-dot"></i> A 45 millones de años luz</div>
-                            </div>
-                        </div>
-
-                        <!-- Caso 2 -->
-                        <div class="showcase-card">
-                            <div class="showcase-header">
-                                <span class="catalog-number">M51</span>
-                                <h3>La Galaxia del Remolino</h3>
-                            </div>
-                            <div class="showcase-body">
-                                <p>Un ejemplo espectacular de interacción menor. La enorme y majestuosa galaxia espiral M51 interactúa dinámicamente con su pequeña vecina NGC 5195. La gravedad del pequeño acompañante ha actuado como un cincel, acentuando y estructurando los brazos espirales de la galaxia principal.</p>
-                                <div class="case-meta"><i class="fa-solid fa-location-dot"></i> A 23 millones de años luz</div>
-                            </div>
-                        </div>
-
-                        <!-- Caso 3 -->
-                        <div class="showcase-card">
-                            <div class="showcase-header">
-                                <span class="catalog-number">NGC 4676</span>
-                                <h3>Las Galaxias de Los Ratones</h3>
-                            </div>
-                            <div class="showcase-body">
-                                <p>Dos galaxias espirales que ya han pasado la una a través de la otra. Las fuerzas gravitatorias han estirado largas colas de estrellas, y los núcleos de ambas galaxias eventualmente retrocederán y se fusionarán por completo en unos cientos de millones de años.</p>
-                                <div class="case-meta"><i class="fa-solid fa-location-dot"></i> A 290 millones de años luz</div>
-                            </div>
-                        </div>
-
-                        <!-- Caso 4 -->
-                        <div class="showcase-card border-accent">
-                            <div class="showcase-header">
-                                <span class="catalog-number">Vía Láctea + Andrómeda</span>
-                                <h3>Lactómeda (Milkomeda)</h3>
-                            </div>
-                            <div class="showcase-body">
-                                <p>Nuestra propia galaxia, la Vía Láctea, viaja a 110 kilómetros por segundo directo hacia su hermana mayor, la galaxia de Andrómeda. Se calcula que el encuentro comenzará en unos <strong>4.000 millones de años</strong>. La fusión reordenará por completo el cielo nocturno y creará una colosal galaxia elíptica unificada.</p>
-                                <div class="case-meta"><i class="fa-solid fa-calendar-days"></i> Futuro: ~4.000 Ma</div>
-                            </div>
-                        </div>
+                <!-- Hilo de discusión 2 -->
+                <div class="talk-thread">
+                    <h2 class="talk-thread-title">2. Duda sobre la colisión de estrellas individuales en Lactómeda</h2>
+                    <div class="talk-comment">
+                        <div class="talk-author">Diego_Disenador (Estudiante de Artes y Humanidades) <span>escribió:</span></div>
+                        <p>Me resulta asombroso y sumamente contraintuitivo que en una colisión galáctica las estrellas no choquen mecánicamente. La analogía de las cerezas en Madrid y Moscú me ayudó muchísimo a visualizarlo como diseñador. Sin embargo, ¿qué pasa con los sistemas solares? ¿Las órbitas de los planetas se desordenarían o saldrían volando?</p>
+                    </div>
+                    <div class="talk-comment talk-reply">
+                        <div class="talk-author">Astrobitacora_Fan (Colaborador Wiki) <span>escribió:</span></div>
+                        <p>Hola Diego. Es una duda muy común. Los estudios dinámicos y simulaciones muestran que la inmensa mayoría de las estrellas (con sus planetas) conservan la estabilidad interna de sus órbitas. Las fuerzas de marea de la fusión afectan a las estrellas a nivel macro (es decir, alteran la órbita de la estrella alrededor del centro de la galaxia entera), pero las distancias planeta-estrella son extremadamente pequeñas en comparación. Por ejemplo, la Tierra está a solo 8 minutos luz del Sol, mientras que la estrella vecina más cercana está a 4 años luz. Así que, aunque el Sol sea arrojado a los suburbios de Lactómeda, la Tierra seguirá girando alrededor del Sol sin notar físicamente la diferencia.</p>
                     </div>
                 </div>
-            </article>
 
-            <!-- Consecuencias -->
-            <article id="consecuencias" class="wiki-section scroll-mt">
-                <div class="section-badge"><i class="fa-solid fa-circle-nodes"></i> Impactos</div>
-                <h2>Consecuencias y Evolución Galáctica</h2>
-                <div class="content-body">
-                    <p>Las interacciones galácticas son motores esenciales del cambio en el cosmos. Sus principales efectos físicos moldean el universo a escalas colosales:</p>
-
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                            <div class="feature-text">
-                                <h3>Brotes de Formación Estelar (Starbursts)</h3>
-                                <p>Durante una fusión húmeda, las ondas de choque gravitatorias empujan y comprimen el gas interestelar frío. Esto hace que nubes de gas gigantes colapsen casi simultáneamente bajo su propia gravedad, encendiendo billones de protoestrellas nuevas a un ritmo frenético, hasta 100 veces superior al de una galaxia tranquila.</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fa-solid fa-circle-dot"></i></div>
-                            <div class="feature-text">
-                                <h3>Activación de Agujeros Negros Supermasivos</h3>
-                                <p>Casi todas las galaxias grandes albergan un agujero negro gigante en su centro. La fricción dinámica durante la fusión arrastra cantidades monumentales de gas y estrellas directamente hacia el núcleo de la galaxia. Este banquete cósmico alimenta al agujero negro, liberando energía colosal que brilla como un <strong>Quásar</strong> o activa el núcleo galáctico (AGN).</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fa-solid fa-shapes"></i></div>
-                            <div class="feature-text">
-                                <h3>El Fin del Disco: De Espiral a Elíptica</h3>
-                                <p>Una de las consecuencias morfológicas más llamativas de una fusión mayor (como dos espirales de masas similares) es la <strong>pérdida del disco ordenado</strong>. La rotación coordinada de las espirales se destruye debido al caos gravitacional, resultando casi siempre en una galaxia elíptica hinchada, caracterizada por estrellas envejecidas y órbitas desordenadas tridimensionales.</p>
-                            </div>
-                        </div>
+                <!-- Hilo de discusión 3 -->
+                <div class="talk-thread">
+                    <h2 class="talk-thread-title">3. Incorporación del maravilloso esquema de la pizarra de Aeree Chung</h2>
+                    <div class="talk-comment">
+                        <div class="talk-author">Lorena_Educa (Estudiante de Pedagogía) <span>escribió:</span></div>
+                        <p>¡Me encanta la ilustración de la pizarra escolar! Explica los 6 procesos dinámicos de manera sumamente amena e intuitiva. Es un material excelente para usar en aulas de colegio de educación básica. Felicito al autor del artículo por haber incorporado este esquema científico e ilustrativo.</p>
                     </div>
                 </div>
-            </article>
+            </div>
+        </div>
 
-            <!-- Recursos Recomendados -->
-            <article id="recursos" class="wiki-section scroll-mt">
-                <div class="section-badge"><i class="fa-solid fa-graduation-cap"></i> Recursos Educativos</div>
-                <h2>Recursos Recomendados para Profundizar</h2>
-                <div class="content-body">
-                    <p>Para aquellos alumnos y docentes que deseen expandir sus conocimientos para clases, debates o ensayos en el diplomado, hemos seleccionado material de alto nivel divulgativo en español e inglés:</p>
-
-                    <!-- Tarjetas de Recursos -->
-                    <div class="resources-grid">
-                        <!-- Recurso 1 (Video) -->
-                        <div class="resource-card">
-                            <div class="resource-type"><i class="fa-solid fa-video"></i> Video Divulgativo</div>
-                            <h3>¿Qué pasará cuando la Vía Láctea y Andrómeda colisionen?</h3>
-                            <p class="resource-author">Astrobitácora (YouTube)</p>
-                            <p class="resource-desc">Una narración inmersiva y científicamente precisa de los tiempos, etapas y el impacto estético en la Tierra del futuro choque con Andrómeda.</p>
-                            <a href="https://www.youtube.com/results?search_query=astrobitacora+colision+via+lactea+andromeda" target="_blank" class="resource-btn">Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-
-                        <!-- Recurso 2 (Video) -->
-                        <div class="resource-card">
-                            <div class="resource-type"><i class="fa-solid fa-video"></i> Video Físico</div>
-                            <h3>Colisiones de Galaxias: La Danza Gravitacional</h3>
-                            <p class="resource-author">Doctor K (YouTube)</p>
-                            <p class="resource-desc">Desglose animado muy visual e intuitivo de cómo se comportan las fuerzas gravitatorias cuando colisionan galaxias y por qué las estrellas no chocan físicamente.</p>
-                            <a href="https://www.youtube.com/results?search_query=colisiones+de+galaxias+doctor+k" target="_blank" class="resource-btn">Buscar Video <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-
-                        <!-- Recurso 3 (Lectura) -->
-                        <div class="resource-card">
-                            <div class="resource-type"><i class="fa-solid fa-file-lines"></i> Lectura Científica</div>
-                            <h3>Luchas de titanes: interacciones y fusiones de galaxias</h3>
-                            <p class="resource-author">Dra. Almudena Alonso Herrero</p>
-                            <p class="resource-desc">Un brillante artículo escrito por una astrofísica e investigadora de renombre española para el Real Observatorio de Madrid, analizando fusiones y agujeros negros.</p>
-                            <a href="https://www.google.com/search?q=Almudena+Alonso+Herrero+Luchas+de+titanes+interacciones+y+fusiones+de+galaxias" target="_blank" class="resource-btn">Buscar Artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-
-                        <!-- Recurso 4 (Lectura) -->
-                        <div class="resource-card">
-                            <div class="resource-type"><i class="fa-solid fa-book"></i> Recurso Docente</div>
-                            <h3>Galaxias: génesis y evolución cósmica</h3>
-                            <p class="resource-author">Science in School (Revista Europea)</p>
-                            <p class="resource-desc">Una lectura ideal para comprender el panorama jerárquico del universo y cómo el canibalismo galáctico ha esculpido las galaxias actuales.</p>
-                            <a href="https://www.scienceinschool.org/es/" target="_blank" class="resource-btn">Ir al Portal <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Sugerencia final -->
-                    <div class="callout callout-success">
-                        <div class="callout-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div class="callout-content">
-                            <h4>Consejo de Estudio para el Diplomado</h4>
-                            <p>Te recomendamos comenzar observando los videos cortos para asimilar la escala temporal y espacial de las colisiones. Posteriormente, la lectura de la Dra. Alonso Herrero te brindará los términos rigurosos (tales como <em>fricción dinámica</em> y <em>brotes estelares</em>) perfectos para sustentar tus trabajos académicos.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <footer class="main-footer">
-                <p>&copy; 2026 CosmoWiki - Creado para la divulgación de las ciencias astronómicas.</p>
-                <p class="hosting-note"><i class="fa-brands fa-github"></i> Optimizado para alojarse en GitHub Pages</p>
-            </footer>
-        </main>
-    </div>
+        <!-- Pie de Página Clásico de Wikipedia -->
+        <footer id="footer" role="contentinfo">
+            <ul id="footer-info">
+                <li id="footer-info-lastmod"> Esta página se editó por última vez el 21 de mayo de 2026, a las 15:00 (UTC).</li>
+                <li id="footer-info-copyright">El texto está disponible bajo la <a href="https://es.wikipedia.org/wiki/Wikipedia:Texto_de_la_Licencia_Creative_Commons_Atribuci%C3%B3n-CompartirIgual_4.0_Internacional">Licencia Creative Commons Atribución-CompartirIgual 4.0</a>; pueden aplicarse cláusulas adicionales. Al usar este sitio, aceptas nuestros <a href="https://wikimediafoundation.org/wiki/Terms_of_Use/es">términos de uso</a> y nuestra <a href="https://wikimediafoundation.org/wiki/Privacy_Policy/es">política de privacidad</a>. <br>Wikipedia® es una marca registrada de la <a href="https://wikimediafoundation.org">Fundación Wikimedia, Inc.</a>, una organización sin ánimo de lucro.</li>
+            </ul>
+            <ul id="footer-places">
+                <li><a href="#">Normas de privacidad</a></li>
+                <li><a href="#">Acerca de Wikipedia</a></li>
+                <li><a href="#">Limitación de responsabilidad</a></li>
+                <li><a href="#">Código de conducta</a></li>
+                <li><a href="#">Desarrolladores</a></li>
+                <li><a href="#">Estadísticas</a></li>
+                <li><a href="#">Declaración de cookies</a></li>
+                <li><a href="#">Versión para móviles</a></li>
+            </ul>
+            <div id="footer-icons">
+                <a href="https://wikimediafoundation.org/"><img src="https://es.wikipedia.org/static/images/footer/wikimedia-button.png" alt="Wikimedia Foundation" width="88" height="31" loading="lazy"></a>
+                <a href="https://www.mediawiki.org/"><img src="https://es.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a>
+            </div>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
