@@ -116,53 +116,7 @@ a:visited {
     margin-top: 2px;
 }
 
-/* Buscador Limpio en la Barra Lateral */
-.sidebar-search {
-    margin-bottom: 1.5em;
-    position: relative;
-}
 
-#simpleSearch {
-    position: relative;
-    border: 1px solid var(--wp-border-color);
-    background-color: #ffffff;
-    height: 28px;
-    width: 100%;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-}
-
-#simpleSearch input {
-    border: none;
-    background: transparent;
-    padding: 2px 8px;
-    width: calc(100% - 24px);
-    font-family: var(--wp-font-sans);
-    font-size: 12px;
-    color: var(--wp-text-main);
-}
-
-#simpleSearch input:focus {
-    outline: none;
-}
-
-#simpleSearch button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    color: var(--wp-text-secondary);
-    width: 24px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-}
-
-#simpleSearch button:hover {
-    color: var(--wp-link-color);
-}
 
 /* Portales y Listados del Menú Lateral */
 .portal {
@@ -510,10 +464,7 @@ sup a {
         padding-bottom: 0;
     }
 
-    .sidebar-search {
-        width: 100%;
-        margin-bottom: 0.5em;
-    }
+
 
     .portal {
         flex: 1;
